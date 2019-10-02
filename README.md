@@ -5,3 +5,4 @@ Hanyang University Erica Shuttle Bus Info system for PWA
 * [Yeonggyun Kim](https://github.com/CXZ7720)
 * [HyeongChang Lee](https://github.com/AnOldStory)
 * [Taewan Park](https://github.com/Taewan-P)
+* [Minji Kim](https://github.com/mjkya)
