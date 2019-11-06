@@ -1,18 +1,19 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <Box />
-    <router-link :to="{ name: 'Box' }">go To box</router-link>
+    <title-component></title-component>
+    <box-component></box-component>
   </div>
 </template>
 
 <script>
-import Box from "./Box.vue";
+import BoxComponent from "./Box.vue";
+import TitleComponent from "./Title.vue";
 
 export default {
-  name: "HelloWorld",
+  name: "Home",
   components: {
-    Box
+    'box-component': BoxComponent, 
+    'title-component': TitleComponent
   },
   data() {
     return {

@@ -1,7 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
+
 import Home from "@/components/Home";
 import Box from "@/components/Box";
+import Title from "@/components/Title";
 
 Vue.use(Router);
 
@@ -10,12 +12,7 @@ export default new Router({
     {
       path: "/",
       name: "Home",
-      component: Home
-    },
-    {
-      path: "/Box",
-      name: "Box",
-      component: Box
+      component: Home, Box, Title
     }
   ]
 });
