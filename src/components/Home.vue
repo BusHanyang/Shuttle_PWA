@@ -2,6 +2,8 @@
   <div class="hello">
     <title-component></title-component>
     <box-component></box-component>
+    <box-component></box-component>
+    <box-component></box-component>
   </div>
 </template>
 
