@@ -19,6 +19,7 @@ export default {
     };
   }
 };
+//box-shadow:0 0 30px 2px rgba(0, 0, 0, 0.15);
 </script>
 
 <style lang="css" scoped>
@@ -29,6 +30,7 @@ export default {
   border-radius: 8px;
   -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
-  box-shadow:0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow:0 0 30px 2px rgba(0, 0, 0, 0.15);
+
 }
 </style>
