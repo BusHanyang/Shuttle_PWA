@@ -1,15 +1,18 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Vue from "vue";
+import Router from "vue-router";
 
-Vue.use(Router)
+import Home from "@/components/Home";
+import Box from "@/components/Box";
+import Title from "@/components/Title";
+
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: "/",
+      name: "Home",
+      component: Home, Box, Title
     }
   ]
-})
+});

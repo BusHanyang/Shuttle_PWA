@@ -389,3 +389,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/node,vuejs,macos,pycharm,windows,webstorm,jetbrains,sublimetext
+.idea/misc.xml
+.idea/modules.xml
+.idea/Shuttle_PWA.iml
+.idea/vcs.xml
