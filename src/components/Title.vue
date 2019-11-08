@@ -9,8 +9,8 @@ export default {};
 <style lang="css" scoped>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @font-face {
-  font-family: Cereal;
-  url(../assets/fonts/AirbnbCerealMedium.woff) format('woff'),
+  font-family: 'Cereal';
+  src: url('../assets/fonts/AirbnbCerealMedium.woff') format('woff');
   font-style: normal;
   font-weight: normal;
 }
