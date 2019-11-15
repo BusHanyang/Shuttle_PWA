@@ -1,19 +1,17 @@
 <template>
-    <p>{{ this.target }}</p>
+  <p>{{ this.target }}</p>
 </template>
 
 <script>
-    export default {
-        name: "Target",
-        props: ['dest'],
-        data(){
-            return{
-                target: this.props
-            }
-        }
-    }
+export default {
+  name: "Target",
+  props: ["val"],
+  data() {
+    return {
+      target: this.val
+    };
+  }
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

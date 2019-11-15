@@ -1,11 +1,14 @@
 <template>
   <div class="hello">
     <title-component></title-component>
-    <box-component :val="name[0]"></box-component>
-    <box-component :val="name[1]"></box-component>
-    <box-component :val="name[2]"></box-component>
-    <box-component :val="name[3]"></box-component>
-
+    <box-component
+      v-for="item in name"
+      :key="item.id"
+      :val="item"
+    ></box-component>
+    <!--    <box-component :val="name[1]"></box-component>-->
+    <!--    <box-component :val="name[2]"></box-component>-->
+    <!--    <box-component :val="name[3]"></box-component>-->
   </div>
 </template>
 
@@ -16,13 +19,13 @@ import TitleComponent from "./Title.vue";
 export default {
   name: "Home",
   components: {
-    'box-component': BoxComponent, 
-    'title-component': TitleComponent
+    "box-component": BoxComponent,
+    "title-component": TitleComponent
   },
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
-      name: ['셔틀콕', '힌대앞역', '기숙사', '예술인 APT']
+      name: ["셔틀콕", "힌대앞역", "기숙사", "예술인 APT"]
     };
   }
 };
