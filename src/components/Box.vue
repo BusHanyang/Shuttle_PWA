@@ -1,23 +1,29 @@
 <template>
   <div id="topbox">
-    <h1> Box component </h1>
-    <animation-component></animation-component>
+    <one-text :val="this.dest"></one-text>
+<!--    <p> {{val}} </p>-->
+<!--    <animation-component></animation-component>-->
   </div>
 </template>
 
 <script>
 import TwoAnimationComponent from "./Twoanimation.vue";
+import OneText from "./OneText";
 
 export default {
   name: "BoxComponent",
   components: {
-    'animation-component': TwoAnimationComponent
+    'animation-component': TwoAnimationComponent,
+    'OneText': OneText
   },
+  props: ['val'],
+
   data() {
     return {
-      msg: "Hello World"
+      msg: "Hello World",
+      dest: this.props
     };
-  }
+  },
 };
 //box-shadow:0 0 30px 2px rgba(0, 0, 0, 0.15);
 </script>

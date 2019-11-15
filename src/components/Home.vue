@@ -1,9 +1,11 @@
 <template>
   <div class="hello">
     <title-component></title-component>
-    <box-component></box-component>
-    <box-component></box-component>
-    <box-component></box-component>
+    <box-component :val="name[0]"></box-component>
+    <box-component :val="name[1]"></box-component>
+    <box-component :val="name[2]"></box-component>
+    <box-component :val="name[3]"></box-component>
+
   </div>
 </template>
 
@@ -19,7 +21,8 @@ export default {
   },
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      name: ['셔틀콕', '힌대앞역', '기숙사', '예술인 APT']
     };
   }
 };
