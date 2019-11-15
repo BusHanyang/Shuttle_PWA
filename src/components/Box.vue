@@ -1,8 +1,14 @@
 <template>
   <div id="topbox">
-    <one-text :val="this.dest"></one-text>
-    <!--    <p> {{val}} </p>-->
-    <!--    <animation-component></animation-component>-->
+    <div v-if="this.val.type === 'TAC'">
+      <animation-component
+        :left="this.val.parameter[0]"
+        :right="this.val.parameter[1]"
+      ></animation-component>
+    </div>
+    <div v-else-if="this.val.type === 'OTC'">
+      <OneText :where="this.val.parameter[0]"></OneText>
+    </div>
   </div>
 </template>
 

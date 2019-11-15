@@ -1,7 +1,7 @@
 <template>
   <div>
-    <bigname :val="this.dest"></bigname>
-    <target :val="this.dest"></target>
+    <bigname :val="this.where"></bigname>
+    <target :val="this.where"></target>
   </div>
 </template>
 
@@ -14,10 +14,10 @@ export default {
     bigname: BigName,
     target: Target
   },
-  props: ["val"],
+  props: ["where"],
   data() {
     return {
-      dest: this.val
+      dest: this.where
     };
   }
 };

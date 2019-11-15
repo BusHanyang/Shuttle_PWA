@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
-      name: ["셔틀콕", "힌대앞역", "기숙사", "예술인 APT"]
+      name: [{type:"TAC",parameter:['left','right']}, {type:"OTC",parameter:['where']}, {type:"OTC",parameter:['where']}, {type:"OTC",parameter:['where']}]
     };
   }
 };
