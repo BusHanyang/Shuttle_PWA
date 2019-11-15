@@ -25,7 +25,14 @@ export default {
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
-      name: [{type:"TAC",parameter:['left','right']}, {type:"OTC",parameter:['where']}, {type:"OTC",parameter:['where']}, {type:"OTC",parameter:['where']}]
+      name: [
+        { type: "TAC", parameter: ["left", "right"] },
+        { type: "OTC", parameter: ["subway"] },
+        { type: "OTC", parameter: ["giksa"] },
+        { type: "OTC", parameter: ["yesulin"] },
+        { type: "OTC", parameter: ["shuttlecock_o"] },
+        { type: "OTC", parameter: ["shuttlecock_i"] }
+      ]
     };
   }
 };
