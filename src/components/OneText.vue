@@ -40,7 +40,6 @@ export default {
               parseInt(min) >
             0
           ) {
-              //@TODO setTimeout 을 통하여 초시계 구현.
             buslst.push({ hour: temp[0], min: temp[1] ,sec: sec});
           }
           if (buslst.length > 4) {
