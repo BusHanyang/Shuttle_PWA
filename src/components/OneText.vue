@@ -26,6 +26,9 @@ export default {
       .then(res => res.json())
       .then(res => {
         let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
         let hour = date.getHours();
         let min = date.getMinutes();
         let sec = date.getSeconds();
@@ -40,7 +43,9 @@ export default {
               parseInt(min) >
             0
           ) {
-            buslst.push({ hour: temp[0], min: temp[1] ,sec: sec});
+            let tmpstr = year + "/" + month + "/" + day + "/" + temp[0] + ":" + temp[1] + ":" + sec
+            let tmpdate = Math.floor(Date.parse(tmpstr) / 1000)
+            buslst.push(tmpdate);
           }
           if (buslst.length > 4) {
             break;

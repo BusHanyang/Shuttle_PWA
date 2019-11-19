@@ -17,26 +17,26 @@ export default {
   },
 
   methods: {
-    getCurrentTime: (x) => {x.now = new Date()}
+    getCurrentTime: (x) => {x.now = Math.floor(new Date().getTime() / 1000)}
   },
 
   props: ["val", "buslist"],
 
   data() {
     return {
-      now: new Date()
+      now: Math.floor(new Date().getTime() / 1000)
     }
   },
 
   computed: {
     hours() {
-      return this.buslist[0].hour - this.now.getHours();
+      return Math.floor((this.buslist[0] - this.now) / 60 / 60) % 24;
     },
     minutes() {
-      return this.buslist[0].min - this.now.getMinutes();
+      return Math.floor((this.buslist[0] - this.now) / 60) % 60;
     },
     seconds() {
-      return this.buslist[0].min - this.now.getSeconds();
+      return (this.buslist[0] - this.now) % 60;
     }
   }
 };
