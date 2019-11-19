@@ -24,19 +24,50 @@ export default {
 
   data() {
     return {
-      now: Math.floor(new Date().getTime() / 1000)
+      now: Math.floor(new Date().getTime() / 1000),
+      i: 0
     }
   },
 
   computed: {
     hours() {
-      return Math.floor((this.buslist[0] - this.now) / 60 / 60) % 24;
+      let j = this.buslist.length;
+      if (j == 0) { return 0 }
+      if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
+        if (this.i <= (j-1)){
+          this.i++;
+        }
+        else { return 0; }
+      }
+      else {
+        return Math.floor((this.buslist[this.i] - this.now) / 60 / 60) % 24;
+      }
     },
     minutes() {
-      return Math.floor((this.buslist[0] - this.now) / 60) % 60;
+      let j = this.buslist.length;
+      if (j == 0) { return 0 }
+      if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
+        if (this.i <= (j-1)){
+          this.i++;
+        }
+        else { return 0; }
+      }
+      else {
+        return Math.floor((this.buslist[this.i] - this.now) / 60) % 60;
+      }
     },
     seconds() {
-      return (this.buslist[0] - this.now) % 60;
+      let j = this.buslist.length;
+      if (j == 0) { return 0 }
+      if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
+        if (this.i <= (j-1)){
+          this.i++;
+        }
+        else { return 0; }
+      }
+      else{
+        return (this.buslist[this.i] - this.now) % 60;
+      }
     }
   }
 };
