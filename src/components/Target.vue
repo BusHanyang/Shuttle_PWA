@@ -10,7 +10,7 @@
 <script>
 export default {
   name: "Target",
-  created: function() {
+  created() {
     setInterval(() => {
       this.getCurrentTime(this);
     }, 1000);
