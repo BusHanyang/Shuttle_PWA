@@ -18,42 +18,56 @@ export default {
   data() {
     return {
       dest: this.where,
+      today: new Date(),
       buslst: "hello"
     };
   },
   created() {
-    fetch("https://shuttle.jaram.net/semester/week/" + this.where)
-      .then(res => res.json())
-      .then(res => {
-        let date = new Date();
-        let hour = date.getHours();
-        let min = date.getMinutes();
-        let sec = date.getSeconds();
+    this.parseBusList(this.where, this.today);
+    if (this.buslst.length == 0) { 
+      this.today.setDate(this.today.getDate() + 1);
+      this.today.setHours(0,0,0,0);
+      this.parseBusList(this.where, this.today);
+    }
+  },
+  methods: {
+    parseBusList(stn, tdate) {
+      fetch("https://shuttle.jaram.net/semester/week/" + stn)
+        .then(res => res.json())
+        .then(res => {
+          let date = tdate;
+          let year = date.getFullYear();
+          let month = date.getMonth() + 1;
+          let day = date.getDate();
+          let hour = date.getHours();
+          let min = date.getMinutes();
+          let sec = date.getSeconds();
 
-        let buslst = [];
-        for (let i = 0; i < res.length; i++) {
-          let temp = res[i].time.split(":");
-          if (
-            parseInt(temp[0]) * 60 +
-              parseInt(temp[1]) -
-              parseInt(hour) * 60 -
-              parseInt(min) >
-            0
-          ) {
-              //@TODO setTimeout 을 통하여 초시계 구현.
-            buslst.push({ hour: temp[0], min: temp[1] ,sec: sec});
+          let buslst = [];
+          for (let i = 0; i < res.length; i++) {
+            let temp = res[i].time.split(":");
+            if (
+              parseInt(temp[0]) * 60 +
+                parseInt(temp[1]) -
+                parseInt(hour) * 60 -
+                parseInt(min) >
+              0
+            ) {
+              let tmpstr = year + "/" + month + "/" + day + "/" + temp[0] + ":" + temp[1] + ":" + sec
+              let tmpdate = Math.floor(Date.parse(tmpstr) / 1000)
+              buslst.push(tmpdate);
+            }
+            // if (buslst.length > 4) {
+            //   break;
+            // }
           }
-          if (buslst.length > 4) {
-            break;
-          }
-        }
-        this.buslst = buslst;
-        // console.log(hour + ":" + min + ":" + sec)
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
+          this.buslst = buslst;
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  },
 };
 </script>
 
