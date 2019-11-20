@@ -34,7 +34,7 @@ export default {
       let j = this.buslist.length;
       if (j == 0) { return 0 }
       if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
-        if (this.i <= (j-1)){
+        if (this.i < j-1){
           this.i++;
           return 0;
         }
@@ -48,7 +48,7 @@ export default {
       let j = this.buslist.length;
       if (j == 0) { return 0 }
       if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
-        if (this.i <= (j-1)){
+        if (this.i < j-1){
           this.i++;
           return 0;
         }
@@ -62,7 +62,7 @@ export default {
       let j = this.buslist.length;
       if (j == 0) { return 0 }
       if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
-        if (this.i <= (j-1)){
+        if (this.i < j-1){
           this.i++;
           return 0;
         }
