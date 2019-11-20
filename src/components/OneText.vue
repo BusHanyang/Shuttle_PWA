@@ -52,7 +52,6 @@ export default {
           }
         }
         this.buslst = buslst;
-        // console.log(hour + ":" + min + ":" + sec)
       })
       .catch(e => {
         console.log(e);

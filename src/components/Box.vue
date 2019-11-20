@@ -26,8 +26,6 @@ export default {
 
   data() {
     return {
-      msg: "Hello World",
-      // console.log(this.val);
       dest: this.val
     };
   }
