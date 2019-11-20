@@ -36,6 +36,7 @@ export default {
       if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
         if (this.i <= (j-1)){
           this.i++;
+          return 0;
         }
         else { return 0; }
       }
@@ -49,6 +50,7 @@ export default {
       if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
         if (this.i <= (j-1)){
           this.i++;
+          return 0;
         }
         else { return 0; }
       }
@@ -62,6 +64,7 @@ export default {
       if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
         if (this.i <= (j-1)){
           this.i++;
+          return 0;
         }
         else { return 0; }
       }
