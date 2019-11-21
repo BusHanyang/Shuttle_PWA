@@ -6,9 +6,6 @@
       :key="item.id"
       :val="item"
     ></box-component>
-    <!--    <box-component :val="name[1]"></box-component>-->
-    <!--    <box-component :val="name[2]"></box-component>-->
-    <!--    <box-component :val="name[3]"></box-component>-->
   </div>
 </template>
 
@@ -38,7 +35,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1,
 h2 {
