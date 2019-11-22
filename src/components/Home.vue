@@ -1,16 +1,8 @@
 <template>
   <div class="hello">
     <title-component></title-component>
-    <transition-group 
-      v-on:after-enter="animateNextBox"
-      name="animatedbox"
-      tag="div" >
-      <box-component
-        v-for="item in name"
-        :key="item.key"
-        :val="item"
-        v-show="animated[item.key]"
-      ></box-component>
+    <transition-group v-on:after-enter="animateNextBox" name="animatedbox" tag="div">
+      <box-component v-for="item in name" :key="item.key" :val="item" v-show="animated[item.key]"></box-component>
     </transition-group>
   </div>
 </template>
@@ -30,7 +22,7 @@ export default {
     return {
       msg: "Welcome to Your Vue.js App",
       name: [
-        { type: "TAC", parameter: ["left", "right"], key: 0 },
+        { type: "TAC", parameter: ["shuttlecock_o", "subway"], key: 0 },
         { type: "OTC", parameter: ["subway"], key: 1 },
         { type: "OTC", parameter: ["giksa"], key: 2 },
         { type: "OTC", parameter: ["yesulin"], key: 3 },
@@ -42,7 +34,7 @@ export default {
   },
   methods: {
     animateNextBox: function() {
-      this.animated.splice(i++, 1, true)
+      this.animated.splice(i++, 1, true);
     }
   },
   mounted() {
@@ -76,6 +68,6 @@ a {
   opacity: 0;
 }
 .animatedbox-enter-active {
-  transition: opacity .15s;
-};
+  transition: opacity 0.15s;
+}
 </style>

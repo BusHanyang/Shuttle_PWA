@@ -1,5 +1,5 @@
 <template>
-  <p>{{ this.target }}</p>
+  <span>{{ this.target }}</span>
 </template>
 
 <script>
