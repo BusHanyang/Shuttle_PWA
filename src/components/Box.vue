@@ -1,12 +1,12 @@
 <template>
-  <div id="topbox">
-    <div v-if="this.val.type === 'TAC'">
+  <div id="box">
+    <div id="topbox" v-if="this.val.type === 'TAC'">
       <animation-component
         :left="this.val.parameter[0]"
         :right="this.val.parameter[1]"
       ></animation-component>
     </div>
-    <div v-else-if="this.val.type === 'OTC'">
+    <div id="listbox" v-else-if="this.val.type === 'OTC'">
       <OneText :where="this.val.parameter[0]"></OneText>
     </div>
   </div>
@@ -30,11 +30,11 @@ export default {
     };
   }
 };
-//box-shadow:0 0 30px 2px rgba(0, 0, 0, 0.15);
+
 </script>
 
 <style lang="css" scoped>
-#topbox {
+#box {
   list-style-type: none;
   padding: 0;
   border: 0 white;
