@@ -1,5 +1,7 @@
 <template>
+  <div id = "depart">
   <p>{{ this.target }}</p>
+  </div>
 </template>
 
 <script>
@@ -14,4 +16,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#depart{
+  font-size: 24px;
+  font-weight: bold;
+}
+</style>
