@@ -28,7 +28,6 @@ export default {
   },
   data() {
     return {
-      msg: "Welcome to Your Vue.js App",
       name: [
         { type: "TAC", parameter: ["left", "right"], key: 0 },
         { type: "OTC", parameter: ["subway"], key: 1 },

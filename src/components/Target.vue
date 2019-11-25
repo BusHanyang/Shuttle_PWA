@@ -2,8 +2,8 @@
   <p>
     {{ this.val }}
     {{ this.buslist !== "hello" ? hours + "시" : "" }}
-    {{ this.buslist !== "hello" ? minutes + "분" : "" }}
-    {{ this.buslist !== "hello" ? seconds + "초" : "" }}
+    {{ this.buslist !== "hello" ? minutes + ":" : "" }}
+    {{ this.buslist !== "hello" ? seconds + "후 도착예정" : "" }}
   </p>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     getCurrentTime: (x) => {x.now = Math.floor(new Date().getTime() / 1000)}
   },
 
-  props: ["val", "buslist"],
+  props: ["buslist"],
 
   data() {
     return {
