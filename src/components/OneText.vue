@@ -53,7 +53,7 @@ export default {
                 parseInt(min) >
               0
             ) {
-              let tmpstr = year + "/" + month + "/" + day + "/" + temp[0] + ":" + temp[1] + ":" + sec
+              let tmpstr = year + "-" + month + "-" + day + "T" + temp[0] + ":" + temp[1] + ":" + sec
               let tmpdate = Math.floor(Date.parse(tmpstr) / 1000)
               buslst.push(tmpdate);
             }
