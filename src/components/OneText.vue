@@ -1,7 +1,7 @@
 <template>
   <div class="time_box">
-    <bigname :val="this.where" class="a"></bigname>
-    <target :val="this.where" :buslist="this.buslst" class="b"></target>
+    <bigname :val="this.where" class="bigName"></bigname>
+    <target :val="this.where" :buslist="this.buslst" class="target"></target>
   </div>
 </template>
 
@@ -77,7 +77,7 @@ export default {
     align-items: center;
     justify-content: space-around;
   }
-  .a {
+  .bigName {
     width: 30%;
     text-align: left;
   }

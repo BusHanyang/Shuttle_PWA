@@ -36,7 +36,7 @@ export default {
 <style lang="css" scoped>
 #box {
   list-style-type: none;
-  padding: 0px;
+  padding: 0;
   border: 0 white;
   border-radius: 8px;
   -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
