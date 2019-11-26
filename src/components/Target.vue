@@ -1,6 +1,5 @@
 <template>
   <p>
-    {{ this.val }}
     {{ this.buslist !== "hello" ? hours + "시" : "" }}
     {{ this.buslist !== "hello" ? minutes + ":" : "" }}
     {{ this.buslist !== "hello" ? seconds + "후 도착예정" : "" }}
