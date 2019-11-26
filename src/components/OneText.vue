@@ -1,7 +1,7 @@
 <template>
   <div class="time_box">
     <bigname :val="this.where" class="bigName"></bigname>
-    <target :val="this.where" :buslist="this.buslst" class="target"></target>
+    <target :buslist="this.buslst" class="target"></target>
   </div>
 </template>
 
@@ -57,9 +57,6 @@ export default {
               let tmpdate = Math.floor(Date.parse(tmpstr) / 1000)
               buslst.push(tmpdate);
             }
-            // if (buslst.length > 4) {
-            //   break;
-            // }
           }
           this.buslst = buslst;
         })
