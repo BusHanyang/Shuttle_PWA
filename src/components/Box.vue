@@ -42,5 +42,6 @@ export default {
   -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
   box-shadow:0 0 30px 2px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
 }
 </style>
