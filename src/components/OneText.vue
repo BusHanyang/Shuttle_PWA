@@ -1,7 +1,7 @@
 <template>
   <div class="time_box">
     <bigname :val="this.where" class="bigName"></bigname>
-    <target :buslist="this.buslst" class="target"></target>
+    <target :bustype="this.bustype" :buslist="this.buslst" class="target"></target>
   </div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
     return {
       dest: this.where,
       today: new Date(),
-      buslst: "hello"
+      buslst: "hello",
+      bustype: "N/A"
     };
   },
   created() {
@@ -44,6 +45,7 @@ export default {
           let sec = date.getSeconds();
 
           let buslst = [];
+          let type = [];
           for (let i = 0; i < res.length; i++) {
             let temp = res[i].time.split(":");
             if (
@@ -56,9 +58,11 @@ export default {
               let tmpstr = year + "-" + month + "-" + day + "T" + temp[0] + ":" + temp[1] + ":" + sec
               let tmpdate = Math.floor(Date.parse(tmpstr) / 1000)
               buslst.push(tmpdate);
+              type.push(res[i].type);
             }
           }
           this.buslst = buslst;
+          this.bustype = type;
         })
         .catch(e => {
           console.log(e);

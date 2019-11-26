@@ -1,5 +1,6 @@
 <template>
   <p>
+    {{ this.bustype !== "N/A" ? type : "" }}
     {{ this.buslist !== "hello" ? hours + "시" : "" }}
     {{ this.buslist !== "hello" ? minutes + ":" : "" }}
     {{ this.buslist !== "hello" ? seconds + "후 도착예정" : "" }}
@@ -19,7 +20,7 @@ export default {
     getCurrentTime: (x) => {x.now = Math.floor(new Date().getTime() / 1000)}
   },
 
-  props: ["buslist"],
+  props: ["bustype", "buslist"],
 
   data() {
     return {
@@ -29,6 +30,26 @@ export default {
   },
 
   computed: {
+    type() {
+      let j = this.buslist.length;
+      if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
+        if (this.i < j-1){
+          this.i++;
+        }
+      }
+      else {
+        switch(this.bustype[this.i]) {
+          case "DH":
+            return "한대앞행"
+          case "DY":
+            return "예술인행"
+          case "C":
+            return "순환노선"
+          default:
+            return "셔틀콕행"
+        }
+      }
+    },
     hours() {
       let j = this.buslist.length;
       if (j == 0) { return 0 }
