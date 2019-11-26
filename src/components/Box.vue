@@ -36,12 +36,11 @@ export default {
 <style lang="css" scoped>
 #box {
   list-style-type: none;
-  padding: 0;
+  padding: 0px;
   border: 0 white;
   border-radius: 8px;
   -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
   box-shadow:0 0 30px 2px rgba(0, 0, 0, 0.15);
-
 }
 </style>
