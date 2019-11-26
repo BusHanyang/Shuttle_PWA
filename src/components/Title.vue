@@ -33,9 +33,6 @@ export default {};
   font-style: normal;
 }
 
-
-
-
 h1 {
   margin-left: 0.4em;
   text-align: left;

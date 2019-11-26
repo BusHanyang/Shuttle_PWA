@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <bigname :val="this.where"></bigname>
-    <target :val="this.where" :buslist="this.buslst"></target>
+  <div class="time_box">
+    <bigname :val="this.where" class="bigName"></bigname>
+    <target :val="this.where" :buslist="this.buslst" class="target"></target>
   </div>
 </template>
 
@@ -71,4 +71,15 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .time_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .bigName {
+    width: 30%;
+    text-align: left;
+  }
+
+</style>

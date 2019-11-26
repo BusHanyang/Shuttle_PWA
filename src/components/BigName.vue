@@ -1,7 +1,7 @@
 <template>
-  <div id = "depart">
+  <span id = "depart">
   <p>{{ this.target }}</p>
-  </div>
+  </span>
 </template>
 
 <script>
