@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TwoAnimationComponent from "./Twoanimation.vue";
+import TwoAnimationComponent from "./TwoAnimation.vue";
 import OneText from "./OneText";
 
 export default {
