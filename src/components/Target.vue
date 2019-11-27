@@ -45,6 +45,10 @@ export default {
             return "예술인행"
           case "C":
             return "순환노선"
+          case "R":
+            return "기숙사행"
+          case "NA":
+            return "운행안함"
           default:
             return "셔틀콕행"
         }
