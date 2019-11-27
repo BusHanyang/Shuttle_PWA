@@ -3,7 +3,7 @@
     {{ this.bustype !== "N/A" ? type : "" }}
     {{ this.buslist !== "hello" ? hours + "시" : "" }}
     {{ this.buslist !== "hello" ? minutes + " :" : "" }}
-    {{ this.buslist !== "hello" ? seconds + "후 도착예정" : "" }}
+    {{ this.buslist !== "hello" ? seconds + " 후 도착예정" : "" }}
   </p>
 </template>
 
