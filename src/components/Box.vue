@@ -33,10 +33,11 @@ export default {
 
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 #box {
   list-style-type: none;
-  padding: 0;
+  padding: 5px;
+  margin: 0 5px 0 5px;
   border: 0 white;
   border-radius: 8px;
   -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);

@@ -25,7 +25,7 @@ export default {
   },
   created() {
     this.parseBusList(this.where, this.today);
-    if (this.buslst.length == 0) { 
+    if (this.buslst.length === 0) {
       this.today.setDate(this.today.getDate() + 1);
       this.today.setHours(0,0,0,0);
       this.parseBusList(this.where, this.today);
@@ -81,6 +81,7 @@ export default {
   .bigName {
     width: 30%;
     text-align: left;
+    word-break: keep-all;
   }
 
 </style>

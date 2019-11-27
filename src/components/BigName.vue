@@ -18,15 +18,15 @@ export default {
       var station = stn;
       switch (station) {
         case "subway":
-          return "한대앞역"
+          return "한대앞"
         case "giksa":
           return "기숙사"
         case "yesulin":
-          return "예술인APT"
+          return "예술인"
         case "shuttlecock_o":
           return "셔틀콕"
         case "shuttlecock_i":
-          return "셔틀콕-기숙사행"
+          return "셔틀콕 건너편"
         default:
           return "???"
       }
@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 #depart{
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 </style>
