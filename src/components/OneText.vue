@@ -32,7 +32,7 @@ export default {
       dest: this.where,
       today: new Date(),
       buslst: "[{time:, type:}]",
-      toggle: false
+      toggle: true
     };
   },
   created() {
