@@ -1,10 +1,10 @@
 <template>
   <div>
-    <span class="bustype">{{ this.bustype !== "N/A" ? type : "" }}</span>
+    <span class="bustype">{{ this.buslist !== "hello" ? type : "" }}</span>
     <span>
       <span class="time_num">{{ this.buslist !== "hello" ? (hours > 0 ? hours+":": "") : "" }}</span>
       <span class="time_num">{{ this.buslist !== "hello" ? minutes + ":" : "" }}</span>
-      <span class="time_num">{{ this.buslist !== "hello" ? (seconds < 10 ? "0"+seconds : seconds) : "" }}</span>
+      <span class="time_num">{{ this.buslist !== "hello" ? (seconds < 10 ? "0" + seconds : seconds) : "" }}</span>
     </span>
     <span class="estimate_test"> 후 도착예정</span>
   </div>
@@ -25,7 +25,7 @@ export default {
     }
   },
 
-  props: ["bustype", "buslist"],
+  props: ["buslist"],
 
   data() {
     return {
@@ -37,12 +37,12 @@ export default {
   computed: {
     type() {
       let j = this.buslist.length;
-      if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
+      if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
         if (this.i < j - 1) {
           this.i++;
         }
       } else {
-        switch (this.bustype[this.i]) {
+        switch (this.buslist[this.i].type) {
           case "DH":
             return "한대앞행";
           case "DY":
@@ -63,7 +63,7 @@ export default {
       if (j === 0) {
         return 0;
       }
-      if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
+      if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
         if (this.i < j - 1) {
           this.i++;
           return 0;
@@ -71,7 +71,7 @@ export default {
           return 0;
         }
       } else {
-        return Math.floor((this.buslist[this.i] - this.now) / 60 / 60) % 24;
+        return Math.floor((this.buslist[this.i].time - this.now) / 60 / 60) % 24;
       }
     },
     minutes() {
@@ -79,7 +79,7 @@ export default {
       if (j === 0) {
         return 0;
       }
-      if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
+      if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
         if (this.i < j - 1) {
           this.i++;
           return 0;
@@ -87,7 +87,7 @@ export default {
           return 0;
         }
       } else {
-        return Math.floor((this.buslist[this.i] - this.now) / 60) % 60;
+        return Math.floor((this.buslist[this.i].time - this.now) / 60) % 60;
       }
     },
     seconds() {
@@ -95,7 +95,7 @@ export default {
       if (j === 0) {
         return 0;
       }
-      if (Math.floor(this.buslist[this.i] - this.now) <= 0) {
+      if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
         if (this.i < j - 1) {
           this.i++;
           return 0;
@@ -103,7 +103,7 @@ export default {
           return 0;
         }
       } else {
-        return (this.buslist[this.i] - this.now) % 60;
+        return (this.buslist[this.i].time - this.now) % 60;
       }
     }
   }

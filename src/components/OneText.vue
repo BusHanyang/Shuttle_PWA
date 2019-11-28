@@ -1,7 +1,19 @@
 <template>
-  <div class="time_box">
-    <bigname :val="this.where" class="bigName"></bigname>
-    <target :bustype="this.bustype" :buslist="this.buslst" class="target"></target>
+  <div v-on:click="toggle = !toggle" class="time_box">
+    <div>
+      <bigname :val="this.where" class="bigName"></bigname>
+      <div>
+        <target :buslist="this.buslst" class="target"></target>
+      </div>
+    </div>
+
+    <div :class="{'invisible':toggle}">
+      <target :buslist="this.buslst.slice(1,this.buslst.length)" class="target"></target>
+      <target :buslist="this.buslst.slice(2,this.buslst.length)" class="target"></target>
+      <target :buslist="this.buslst.slice(3,this.buslst.length)" class="target"></target>
+      <target :buslist="this.buslst.slice(4,this.buslst.length)" class="target"></target>
+      <target :buslist="this.buslst.slice(5,this.buslst.length)" class="target"></target>
+    </div>
   </div>
 </template>
 
@@ -19,8 +31,8 @@ export default {
     return {
       dest: this.where,
       today: new Date(),
-      buslst: "hello",
-      bustype: "N/A"
+      buslst: "[{time:, type:}]",
+      toggle: false
     };
   },
   created() {
@@ -45,7 +57,7 @@ export default {
           let sec = date.getSeconds();
 
           let buslst = [];
-          let type = [];
+          let tempstr = {};
           for (let i = 0; i < res.length; i++) {
             let temp = res[i].time.split(":");
             if (
@@ -57,12 +69,11 @@ export default {
             ) {
               let tmpstr = year + "-" + month + "-" + day + "T" + temp[0] + ":" + temp[1] + ":" + sec
               let tmpdate = Math.floor(Date.parse(tmpstr) / 1000)
-              buslst.push(tmpdate);
-              type.push(res[i].type);
+              tempstr = {time: tmpdate, type: res[i].type}
+              buslst.push(tempstr);
             }
           }
           this.buslst = buslst;
-          this.bustype = type;
         })
         .catch(e => {
           console.log(e);
@@ -83,5 +94,8 @@ export default {
     text-align: left;
     word-break: keep-all;
   }
+  .invisible {
+  display: none;
+}
 
 </style>
