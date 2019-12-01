@@ -34,7 +34,7 @@ export default {};
 }
 
 h1 {
-  margin-left: 0.4em;
+  margin-left: 0.8rem;
   text-align: left;
   font-family: 'Cereal';
 }

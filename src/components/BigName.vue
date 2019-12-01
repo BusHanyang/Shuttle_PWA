@@ -36,8 +36,10 @@ export default {
 </script>
 
 <style scoped>
+
 #depart{
-  font-size: 20px;
+  margin-top: 0;
+  font-size: 1.428rem;
   font-weight: bold;
 }
 </style>

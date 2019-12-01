@@ -34,15 +34,16 @@ export default {
 </script>
 
 <style lang="css">
+
 #box {
+  /*1rem == 14px*/
   list-style-type: none;
-  padding: 5px;
-  margin: 0 5px 0 5px;
+  padding: 0.357rem;
   border: 0 white;
-  border-radius: 8px;
-  -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
-  box-shadow:0 0 30px 2px rgba(0, 0, 0, 0.15);
-  margin-bottom: 15px;
+  border-radius: 0.571rem;
+  -webkit-box-shadow:0 0 0.714rem rgba(0, 0, 0, 0.5);
+  -moz-box-shadow:0 0 0.714rem rgba(0, 0, 0, 0.5);
+  box-shadow:0 0 2.142rem 0.142rem rgba(0, 0, 0, 0.15);
+  margin: 0 0.357rem 1.071rem;
 }
 </style>

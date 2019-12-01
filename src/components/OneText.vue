@@ -1,15 +1,16 @@
 <template>
-  <div v-on:click="toggle = !toggle" class="time_box">
+  <div v-on:click="toggle = !toggle" :class="{ align_top: !toggle }" class="time_box">
     <bigname :val="this.where" class="bigName"></bigname>
-    <div class="default-target">
-      <target :buslist="this.buslst" :a="0" class="target"></target>
-    </div>
-
-    <div class="more" :class="{'invisible':toggle}">
-      <target :buslist="this.buslst" :a="1" class="target"></target>
-      <target :buslist="this.buslst" :a="2" class="target"></target>
-      <target :buslist="this.buslst" :a="3" class="target"></target>
-      <target :buslist="this.buslst" :a="4" class="target"></target>
+    <div class="timetable">
+      <span class="default-target">
+        <target :buslist="this.buslst" :a="0" class="target"></target>
+      </span>
+      <span class="more" :class="{'invisible':toggle}">
+        <target :buslist="this.buslst" :a="1" class="target"></target>
+        <target :buslist="this.buslst" :a="2" class="target"></target>
+        <target :buslist="this.buslst" :a="3" class="target"></target>
+        <target :buslist="this.buslst" :a="4" class="target"></target>
+      </span>
     </div>
   </div>
 </template>
@@ -83,20 +84,26 @@ export default {
 <style scoped>
   .time_box {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
   }
-  .default {
-    display: inline;
+  .align_top {
+    align-items: flex-start;
+  }
+
+  .timetable {
+    flex-direction: column;
   }
   .default-target {
-    float: flex;
+    /*float: right;*/
   }
   .more {
     text-align: right;
-    float: right;
+    /*float: right;*/
   }
   .bigName {
+    margin-left: 1rem;
     width: 30%;
     text-align: left;
     word-break: keep-all;

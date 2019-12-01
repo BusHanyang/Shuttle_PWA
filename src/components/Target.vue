@@ -111,22 +111,24 @@ export default {
 </script>
 
 <style scoped>
+  /*1rem == 14px*/
 .bustype {
   color: #007afa;
-  font-size: 11px;
+  font-size: 0.785rem;
 }
 
 .time {
-  font-size: 14px;
+
+  font-size: 1rem;
 }
 
   .time_num {
-    font-size: 20px;
+    font-size: 1.42rem;
     font-weight: bold;
     vertical-align: text-bottom;
   }
 
   .estimate_test {
-    font-size: 14px;
+    font-size: 1rem;
   }
 </style>
