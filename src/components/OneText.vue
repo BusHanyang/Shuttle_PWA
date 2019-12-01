@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     parseBusList(stn, tdate) {
-      fetch("https://shuttle.jaram.net/semester/week/" + stn)
+      fetch("https://hyu-shuttlebus.appspot.com/" + stn)
         .then(res => res.json())
         .then(res => {
           let date = tdate;
