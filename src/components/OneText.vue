@@ -65,7 +65,7 @@ export default {
               0
             ) {
               let tmpstr = year + "-" + month + "-" + day + "T" + temp[0] + ":" + temp[1] + ":" + sec
-              let tmpdate = Math.floor(Date.parse(tmpstr) / 1000)
+              let tmpdate = Math.floor(new Date(year, month-1, day, temp[0], temp[1], sec) / 1000)
               tempstr = {time: tmpdate, type: res[i].type}
               buslst.push(tempstr);
             }
