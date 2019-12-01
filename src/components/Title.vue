@@ -7,7 +7,7 @@ export default {};
 </script>
 
 <style lang="css" scoped>
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+/* @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css); */
 @font-face {
   font-family: 'Cereal';
   src: url('../assets/fonts/AirbnbCerealMedium.woff') format('woff');
@@ -36,6 +36,6 @@ export default {};
 h1 {
   margin-left: 0.4em;
   text-align: left;
-  font-family: 'Spoqa Han Sans';
+  font-family: 'Cereal';
 }
 </style>
