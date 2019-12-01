@@ -25,12 +25,12 @@ export default {
     }
   },
 
-  props: ["buslist"],
+  props: ["buslist","a"],
 
   data() {
     return {
       now: Math.floor(new Date().getTime() / 1000),
-      i: 0
+      i: 0+this.a
     };
   },
 

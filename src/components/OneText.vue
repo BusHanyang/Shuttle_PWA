@@ -1,18 +1,15 @@
 <template>
   <div v-on:click="toggle = !toggle" class="time_box">
-    <div>
-      <bigname :val="this.where" class="bigName"></bigname>
-      <div>
-        <target :buslist="this.buslst" class="target"></target>
-      </div>
+    <bigname :val="this.where" class="bigName"></bigname>
+    <div class="default-target">
+      <target :buslist="this.buslst" :a="0" class="target"></target>
     </div>
 
-    <div :class="{'invisible':toggle}">
-      <target :buslist="this.buslst.slice(1,this.buslst.length)" class="target"></target>
-      <target :buslist="this.buslst.slice(2,this.buslst.length)" class="target"></target>
-      <target :buslist="this.buslst.slice(3,this.buslst.length)" class="target"></target>
-      <target :buslist="this.buslst.slice(4,this.buslst.length)" class="target"></target>
-      <target :buslist="this.buslst.slice(5,this.buslst.length)" class="target"></target>
+    <div class="more" :class="{'invisible':toggle}">
+      <target :buslist="this.buslst" :a="1" class="target"></target>
+      <target :buslist="this.buslst" :a="2" class="target"></target>
+      <target :buslist="this.buslst" :a="3" class="target"></target>
+      <target :buslist="this.buslst" :a="4" class="target"></target>
     </div>
   </div>
 </template>
@@ -31,7 +28,7 @@ export default {
     return {
       dest: this.where,
       today: new Date(),
-      buslst: "[{time:, type:}]",
+      buslst: "[{time:"+new Date().getTime()+", type:}]",
       toggle: true
     };
   },
@@ -88,6 +85,16 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
+  }
+  .default {
+    display: inline;
+  }
+  .default-target {
+    float: flex;
+  }
+  .more {
+    text-align: right;
+    float: right;
   }
   .bigName {
     width: 30%;
