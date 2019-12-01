@@ -32,10 +32,10 @@ export default {
     return {
       name: [
 
-        { type: "OTC", parameter: ["subway"], key: 0 },
-        { type: "OTC", parameter: ["giksa"], key: 1 },
-        { type: "OTC", parameter: ["yesulin"], key: 2 },
-        { type: "OTC", parameter: ["shuttlecock_o"], key: 3 },
+        { type: "OTC", parameter: ["shuttlecock_o"], key: 0 },
+        { type: "OTC", parameter: ["subway"], key: 1 },
+        { type: "OTC", parameter: ["giksa"], key: 2 },
+        { type: "OTC", parameter: ["yesulin"], key: 3 },
         { type: "OTC", parameter: ["shuttlecock_i"], key: 4 }
       ],
       animated: [false, false, false, false, false, false]
