@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="target">
     <span class="bustype">{{ this.buslist !== "hello" ? type : "" }}</span>
     <span>
       <span class="time_num">{{ this.buslist !== "hello" ? (hours > 0 ? hours+":": "") : "" }}</span>
@@ -123,9 +123,14 @@ export default {
 
 <style scoped>
   /*1rem == 14px*/
+.target {
+  display: table;
+}
 .bustype {
   color: #007afa;
   font-size: 0.785rem;
+  display: table-cell;
+  padding: 5px;
 }
 
 .time {
