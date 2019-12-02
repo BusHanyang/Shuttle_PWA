@@ -35,11 +35,6 @@ export default {
   },
   created() {
     this.parseBusList(this.where, this.today);
-    if (this.buslst.length === 0) {
-      this.today.setDate(this.today.getDate() + 1);
-      this.today.setHours(0,0,0,0);
-      this.parseBusList(this.where, this.today);
-    }
   },
   methods: {
     parseBusList(stn, tdate) {
@@ -65,7 +60,6 @@ export default {
                 parseInt(min) >
               0
             ) {
-              let tmpstr = year + "-" + month + "-" + day + "T" + temp[0] + ":" + temp[1] + ":" + sec
               let tmpdate = Math.floor(new Date(year, month-1, day, temp[0], temp[1], sec) / 1000)
               tempstr = {time: tmpdate, type: res[i].type}
               buslst.push(tempstr);
