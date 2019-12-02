@@ -5,7 +5,7 @@
       <span class="default-target">
         <target :buslist="this.buslst" :a="0" class="target"></target>
       </span>
-      <span class="more" :class="{'invisible':toggle}">
+      <span v-if="this.buslst[0].type != 'F'" class="more" :class="{'invisible':toggle}">
         <target :buslist="this.buslst" :a="1" class="target"></target>
         <target :buslist="this.buslst" :a="2" class="target"></target>
         <target :buslist="this.buslst" :a="3" class="target"></target>
@@ -70,6 +70,11 @@ export default {
               tempstr = {time: tmpdate, type: res[i].type}
               buslst.push(tempstr);
             }
+          }
+          if ( buslst.length <= 5 ) {
+            let buslst = [];
+            tempstr = {time: "F",type: "F"}
+            buslst.push(tempstr);
           }
           this.buslst = buslst;
         })

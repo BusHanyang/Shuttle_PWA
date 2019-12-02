@@ -37,73 +37,84 @@ export default {
   computed: {
     type() {
       let j = this.buslist.length;
-      if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
-        if (this.i < j - 1) {
-          this.i++;
-        }
-      } else {
-        switch (this.buslist[this.i].type) {
-          case "DH":
-            return "한대앞행";
-          case "DY":
-            return "예술인행";
-          case "C":
-            return "순환노선"
-          case "R":
-            return "기숙사행"
-          case "NA":
-            return "운행안함"
-          default:
-            return "셔틀콕행";
+      if (j === 0 || (j === 1 && this.buslist.type == "F")) {
+        return "운행종료"
+      }
+      else {
+        if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
+          if (this.i < j - 1) {
+            this.i++;
+          }
+        } else {
+          switch (this.buslist[this.i].type) {
+            case "DH":
+              return "한대앞행";
+            case "DY":
+              return "예술인행";
+            case "C":
+              return "순환노선"
+            case "R":
+              return "기숙사행"
+            case "NA":
+              return "운행안함"
+            default:
+              return "셔틀콕행";
+          }
         }
       }
     },
     hours() {
       let j = this.buslist.length;
-      if (j === 0) {
+      if (j === 0 || (j === 1 && this.buslist.type == "F")) {
         return 0;
       }
-      if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
-        if (this.i < j - 1) {
-          this.i++;
-          return 0;
+      else {
+        if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
+          if (this.i < j - 1) {
+            this.i++;
+            return 0;
+          } else {
+            return 0;
+          }
         } else {
-          return 0;
+          return Math.floor((this.buslist[this.i].time - this.now) / 60 / 60) % 24;
         }
-      } else {
-        return Math.floor((this.buslist[this.i].time - this.now) / 60 / 60) % 24;
       }
     },
     minutes() {
       let j = this.buslist.length;
-      if (j === 0) {
+      if (j === 0 || (j === 1 && this.buslist.type == "F")) {
         return 0;
       }
-      if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
-        if (this.i < j - 1) {
-          this.i++;
-          return 0;
+      else {
+        if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
+          if (this.i < j - 1) {
+            this.i++;
+            return 0;
+          } else {
+            return 0;
+          }
         } else {
-          return 0;
+          return Math.floor((this.buslist[this.i].time - this.now) / 60) % 60;
         }
-      } else {
-        return Math.floor((this.buslist[this.i].time - this.now) / 60) % 60;
       }
     },
     seconds() {
       let j = this.buslist.length;
-      if (j === 0) {
+      if (j === 0 || (j === 1 && this.buslist.type == "F")) {
         return 0;
       }
-      if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
-        if (this.i < j - 1) {
-          this.i++;
-          return 0;
+      else { 
+        if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
+          if (this.i < j - 1) {
+            this.i++;
+            return 0;
+          } else {
+            return 0;
+          }
         } else {
-          return 0;
+          return (this.buslist[this.i].time - this.now) % 60;
         }
-      } else {
-        return (this.buslist[this.i].time - this.now) % 60;
       }
     }
   }
