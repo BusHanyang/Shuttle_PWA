@@ -1,7 +1,17 @@
 <template>
-  <div class="time_box">
+  <div v-on:click="toggle = !toggle" :class="{ align_top: !toggle }" class="time_box">
     <bigname :val="this.where" class="bigName"></bigname>
-    <target :val="this.where" :buslist="this.buslst" class="target"></target>
+    <div class="timetable">
+      <span class="default-target">
+        <target :buslist="this.buslst" :a="0" class="target"></target>
+      </span>
+      <span v-if="this.buslst[0].type != 'F'" class="more" :class="{'invisible':toggle}">
+        <target :buslist="this.buslst" :a="1" class="target"></target>
+        <target :buslist="this.buslst" :a="2" class="target"></target>
+        <target :buslist="this.buslst" :a="3" class="target"></target>
+        <target :buslist="this.buslst" :a="4" class="target"></target>
+      </span>
+    </div>
   </div>
 </template>
 
@@ -19,20 +29,16 @@ export default {
     return {
       dest: this.where,
       today: new Date(),
-      buslst: "hello"
+      buslst: "[{time:"+new Date().getTime()+", type:}]",
+      toggle: true
     };
   },
   created() {
     this.parseBusList(this.where, this.today);
-    if (this.buslst.length == 0) { 
-      this.today.setDate(this.today.getDate() + 1);
-      this.today.setHours(0,0,0,0);
-      this.parseBusList(this.where, this.today);
-    }
   },
   methods: {
     parseBusList(stn, tdate) {
-      fetch("https://shuttle.jaram.net/semester/week/" + stn)
+      fetch("https://hyu-shuttlebus.appspot.com/" + stn)
         .then(res => res.json())
         .then(res => {
           let date = tdate;
@@ -44,6 +50,7 @@ export default {
           let sec = date.getSeconds();
 
           let buslst = [];
+          let tempstr = {};
           for (let i = 0; i < res.length; i++) {
             let temp = res[i].time.split(":");
             if (
@@ -53,13 +60,15 @@ export default {
                 parseInt(min) >
               0
             ) {
-              let tmpstr = year + "/" + month + "/" + day + "/" + temp[0] + ":" + temp[1] + ":" + sec
-              let tmpdate = Math.floor(Date.parse(tmpstr) / 1000)
-              buslst.push(tmpdate);
+              let tmpdate = Math.floor(new Date(year, month-1, day, temp[0], temp[1], sec) / 1000)
+              tempstr = {time: tmpdate, type: res[i].type}
+              buslst.push(tempstr);
             }
-            // if (buslst.length > 4) {
-            //   break;
-            // }
+          }
+          if ( buslst.length <= 5 ) {
+            let buslst = [];
+            tempstr = {time: "F",type: "F"}
+            buslst.push(tempstr);
           }
           this.buslst = buslst;
         })
@@ -74,12 +83,32 @@ export default {
 <style scoped>
   .time_box {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
   }
+  .align_top {
+    align-items: flex-start;
+  }
+
+  .timetable {
+    flex-direction: column;
+  }
+  .default-target {
+    /*float: right;*/
+  }
+  .more {
+    text-align: right;
+    /*float: right;*/
+  }
   .bigName {
+    margin-left: 1rem;
     width: 30%;
     text-align: left;
+    word-break: keep-all;
   }
+  .invisible {
+  display: none;
+}
 
 </style>

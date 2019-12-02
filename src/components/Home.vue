@@ -26,15 +26,17 @@ export default {
     "box-component": BoxComponent,
     "title-component": TitleComponent
   },
+
   data() {
+    // { type: "TAC", parameter: ["left", "right"], key: 0 },
     return {
       name: [
-        { type: "TAC", parameter: ["left", "right"], key: 0 },
+
+        { type: "OTC", parameter: ["shuttlecock_o"], key: 0 },
         { type: "OTC", parameter: ["subway"], key: 1 },
         { type: "OTC", parameter: ["giksa"], key: 2 },
         { type: "OTC", parameter: ["yesulin"], key: 3 },
-        { type: "OTC", parameter: ["shuttlecock_o"], key: 4 },
-        { type: "OTC", parameter: ["shuttlecock_i"], key: 5 }
+        { type: "OTC", parameter: ["shuttlecock_i"], key: 4 }
       ],
       animated: [false, false, false, false, false, false]
     };
