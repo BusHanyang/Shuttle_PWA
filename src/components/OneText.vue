@@ -5,7 +5,7 @@
       <span class="default-target">
         <target :buslist="this.buslst" :a="0" class="target"></target>
       </span>
-      <span class="more" :class="{'invisible':toggle}">
+      <span v-if="done" class="more" :class="{'invisible':toggle}">
         <target :buslist="this.buslst" :a="1" class="target"></target>
         <target :buslist="this.buslst" :a="2" class="target"></target>
         <target :buslist="this.buslst" :a="3" class="target"></target>
@@ -30,11 +30,18 @@ export default {
       dest: this.where,
       today: new Date(),
       buslst: "[{time:"+new Date().getTime()+", type:}]",
-      toggle: true
+      toggle: true,
+      done: true
     };
   },
   created() {
     this.parseBusList(this.where, this.today);
+  },
+
+  beforeUpdate() {
+    if (this.buslst[1].type === "F") {
+      this.done = false;
+    }
   },
   methods: {
     parseBusList(stn, tdate) {
