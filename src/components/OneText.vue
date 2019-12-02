@@ -65,10 +65,11 @@ export default {
               buslst.push(tempstr);
             }
           }
-          if ( buslst.length <= 5 ) {
-            let buslst = [];
-            tempstr = {time: "F",type: "F"}
-            buslst.push(tempstr);
+          if (buslst.length < 5) {
+            while(buslst.length < 5) {
+              tempstr = {time: 0, type: "F"}
+              buslst.push(tempstr)
+            }
           }
           this.buslst = buslst;
         })

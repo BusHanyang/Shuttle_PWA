@@ -37,7 +37,7 @@ export default {
   computed: {
     type() {
       let j = this.buslist.length;
-      if (j === 0 || (j === 1 && this.buslist.type == "F")) {
+      if (this.buslist[this.i].type == "F") {
         return "운행종료"
       }
       else {
@@ -65,7 +65,7 @@ export default {
     },
     hours() {
       let j = this.buslist.length;
-      if (j === 0 || (j === 1 && this.buslist.type == "F")) {
+      if (this.buslist[this.i].type == "F") {
         return 0;
       }
       else {
@@ -83,7 +83,7 @@ export default {
     },
     minutes() {
       let j = this.buslist.length;
-      if (j === 0 || (j === 1 && this.buslist.type == "F")) {
+      if (this.buslist[this.i].type == "F") {
         return 0;
       }
       else {
@@ -101,7 +101,7 @@ export default {
     },
     seconds() {
       let j = this.buslist.length;
-      if (j === 0 || (j === 1 && this.buslist.type == "F")) {
+      if (this.buslist[this.i].type == "F") {
         return 0;
       }
       else { 
