@@ -1,5 +1,5 @@
 <template>
-  <div v-on:click="toggle = !toggle" :class="{ align_top: !toggle }" class="time_box">
+  <div v-on:click="toggle = !toggle" :class="{ align_top: !toggle && this.buslst[1].type != 'F'}" class="time_box">
     <bigname :val="this.where" class="bigName"></bigname>
     <div class="timetable">
       <span class="default-target">
