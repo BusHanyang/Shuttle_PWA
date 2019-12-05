@@ -1,5 +1,5 @@
 <template>
-  <div id="box">
+  <div class="box">
     <div id="topbox" v-if="this.val.type === 'TAC'">
       <animation-component
         :left="this.val.parameter[0]"
@@ -34,15 +34,12 @@ export default {
 </script>
 
 <style lang="css">
-
-#box {
+.box {
   /*1rem == 14px*/
   list-style-type: none;
   padding: 0.357rem;
   border: 0 white;
   border-radius: 0.571rem;
-  -webkit-box-shadow:0 0 0.714rem rgba(0, 0, 0, 0.5);
-  -moz-box-shadow:0 0 0.714rem rgba(0, 0, 0, 0.5);
   box-shadow:0 0 2.142rem 0.142rem rgba(0, 0, 0, 0.15);
   margin: 0 0.357rem 1.071rem;
 }
