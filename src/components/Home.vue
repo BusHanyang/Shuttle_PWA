@@ -53,5 +53,10 @@ export default {
 </script>
 
 <style scoped>
-
+.animatedbox-enter {
+  opacity: 0;
+}
+.animatedbox-enter-active {
+  transition: opacity .15s;
+};
 </style>
