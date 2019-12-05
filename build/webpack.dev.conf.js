@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+const {InjectManifest} = require('workbox-webpack-plugin');
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -64,7 +65,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new InjectManifest({
+      swSrc: "./src/src-sw.js",
+      swDest: "sw.js",
+      // Cache fonts, html files and icons
+      include: [/\.woff$/, /\.woff2$/, /\.eot$/, /\.png$/, /\.html$/],
+    })
   ]
 })
 

@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const {InjectManifest} = require('workbox-webpack-plugin');
 
 const env = require('../config/prod.env')
 
@@ -115,7 +116,16 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new InjectManifest({
+      swSrc: "./src/src-sw.js",
+      swDest: "sw.js",
+      // Cache fonts, html files and icons
+      include: [/\.woff$/, /\.woff2$/, /\.eot$/, /\.png$/, /\.html$/],
+    })
+    // new WorkboxPlugin.GenerateSW({
+    //   exclude: 'service-worker.js'
+    // })
   ]
 })
 

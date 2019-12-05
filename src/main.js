@@ -6,6 +6,12 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
