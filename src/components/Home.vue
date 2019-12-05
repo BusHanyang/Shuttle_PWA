@@ -58,5 +58,5 @@ export default {
 }
 .animatedbox-enter-active {
   transition: opacity .15s;
-};
+}
 </style>
