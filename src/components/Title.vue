@@ -1,5 +1,5 @@
 <template>
-  <h1>셔틀하냥</h1>
+  <h1>버스하냥</h1>
 </template>
 
 <script>
