@@ -1,5 +1,5 @@
 <template>
-  <h1>ShuttleCock</h1>
+  <h1>셔틀하냥</h1>
 </template>
 
 <script>
@@ -8,12 +8,7 @@ export default {};
 
 <style lang="css" scoped>
 /* @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css); */
-@font-face {
-  font-family: 'Cereal';
-  src: url('../assets/fonts/AirbnbCerealMedium.woff') format('woff');
-  font-style: normal;
-  font-weight: normal;
-}
+
 @font-face {
   font-family: 'AppleGothic';
   src: url('../assets/fonts/AppleGothic.eot');
@@ -33,9 +28,29 @@ export default {};
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'noto_sans_krbold';
+  src: url('../assets/fonts/notosanskr-bold-webfont.woff2') format('woff2'),
+  url('../assets/fonts/notosanskr-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'noto_sans_kr_regular';
+  src: url('../assets/fonts/notosanskr-regular-webfont.woff2') format('woff2'),
+  url('../assets/fonts/notosanskr-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
 h1 {
   margin-left: 0.8rem;
   text-align: left;
-  font-family: 'Cereal';
+  font-family: 'noto_sans_kr_regular';
 }
 </style>
