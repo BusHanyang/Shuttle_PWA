@@ -26,7 +26,9 @@ export default {
     "box-component": BoxComponent,
     "title-component": TitleComponent
   },
-
+  // created() {
+  //   this.$cookie.set("keyName", keyValue, "expiring time")
+  // },
   data() {
     // { type: "TAC", parameter: ["left", "right"], key: 0 },
     return {
