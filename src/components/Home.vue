@@ -50,7 +50,6 @@ export default {
       this.animated.splice(i++, 1, true)
     }
   },
-  }
 };
 </script>
 
