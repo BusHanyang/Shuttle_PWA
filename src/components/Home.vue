@@ -30,10 +30,8 @@ export default {
   //   this.$cookie.set("keyName", keyValue, "expiring time")
   // },
   data() {
-    // { type: "TAC", parameter: ["left", "right"], key: 0 },
     return {
       name: [
-
         { type: "OTC", parameter: ["shuttlecock_o"], key: 0 },
         { type: "OTC", parameter: ["subway"], key: 1 },
         { type: "OTC", parameter: ["giksa"], key: 2 },
@@ -43,13 +41,14 @@ export default {
       animated: [false, false, false, false, false, false]
     };
   },
+    mounted() {
+      setTimeout(this.animateNextBox, 100);
+    },
   methods: {
     animateNextBox: function() {
       this.animated.splice(i++, 1, true)
     }
   },
-  mounted() {
-    setTimeout(this.animateNextBox, 100);
   }
 };
 </script>
