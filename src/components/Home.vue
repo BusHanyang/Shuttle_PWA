@@ -26,9 +26,9 @@ export default {
     "box-component": BoxComponent,
     "title-component": TitleComponent
   },
-  // created() {
-  //   this.$cookie.set("keyName", keyValue, "expiring time")
-  // },
+  created() {
+    this.$cookie.set("darkmode_setting", this.darkTheme, { expires: "1Y" });
+  },
   data() {
     return {
       name: [
