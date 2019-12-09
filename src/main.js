@@ -4,6 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+var VueCookie = require('vue-cookie');
+
+
+Vue.use(VueCookie);
 Vue.config.productionTip = false
 
 // Check that service workers are supported
