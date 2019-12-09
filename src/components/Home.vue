@@ -38,7 +38,8 @@ export default {
         { type: "OTC", parameter: ["yesulin"], key: 3 },
         { type: "OTC", parameter: ["shuttlecock_i"], key: 4 }
       ],
-      animated: [false, false, false, false, false, false]
+      animated: [false, false, false, false, false, false],
+      darkTheme: false
     };
   },
     mounted() {
