@@ -1,21 +1,18 @@
 <template>
-  <v-app id="mainpage" :dark="setTheme">
-    <div class="hello">
-      <title-component></title-component>
-      <v-switch :label="`Dark Theme`" v-model="darkTheme"></v-switch>
-      <transition-group 
-        v-on:after-enter="animateNextBox"
-        name="animatedbox"
-        tag="div" >
-        <box-component
-          v-for="item in name"
-          :key="item.key"
-          :val="item"
-          v-show="animated[item.key]"
-        ></box-component>
-      </transition-group>
-    </div>
-  </v-app>
+  <div class="hello">
+    <title-component></title-component>
+    <transition-group 
+      v-on:after-enter="animateNextBox"
+      name="animatedbox"
+      tag="div" >
+      <box-component
+        v-for="item in name"
+        :key="item.key"
+        :val="item"
+        v-show="animated[item.key]"
+      ></box-component>
+    </transition-group>
+  </div>
 </template>
 
 <script>
@@ -51,18 +48,6 @@ export default {
   methods: {
     animateNextBox: function() {
       this.animated.splice(i++, 1, true)
-    }
-  },
-  computed: {
-    setTheme() {
-      if (this.darkTheme == true) {
-        this.$vuetify.theme.dark = true
-        return this.$vuetify.theme.dark;
-      }
-      else {
-        this.$vuetify.theme.dark = false
-        return this.$vuetify.theme.dark;
-      }
     }
   }
 };
