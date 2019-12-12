@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hybus">
     <title-component></title-component>
     <transition-group 
       v-on:after-enter="animateNextBox"
