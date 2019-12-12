@@ -102,9 +102,6 @@ export default {
   .timetable {
     flex-direction: column;
   }
-  .default-target {
-    /*float: right;*/
-  }
   .more {
     text-align: right;
     /*float: right;*/
