@@ -1,6 +1,7 @@
 <template>
-  <div class="hybus">
+  <div class="hybus" :class="(theme == 'dark') ? 'dark' : 'light'">
     <title-component></title-component>
+    <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
     <transition-group 
       v-on:after-enter="animateNextBox"
       name="animatedbox"
@@ -18,16 +19,18 @@
 <script>
 import BoxComponent from "./Box.vue";
 import TitleComponent from "./Title.vue";
+import Toggle from "./Toggle.vue";
 
 let i = 0;
 export default {
   name: "Home",
   components: {
     "box-component": BoxComponent,
-    "title-component": TitleComponent
+    "title-component": TitleComponent,
+    "toggle-component": Toggle
   },
   created() {
-    this.$cookie.set("darkmode_setting", this.darkTheme, { expires: "1Y" });
+    this.$cookie.set("darkmode_setting", this.theme, { expires: "1Y" });
   },
   data() {
     return {
@@ -39,7 +42,7 @@ export default {
         { type: "OTC", parameter: ["shuttlecock_i"], key: 4 }
       ],
       animated: [false, false, false, false, false, false],
-      darkTheme: false
+      theme: "light"
     };
   },
     mounted() {
@@ -48,12 +51,30 @@ export default {
   methods: {
     animateNextBox: function() {
       this.animated.splice(i++, 1, true)
+    },
+    toggle () {
+      if (this.theme === "light") {
+        this.theme = "dark"
+      }
+      else { this.theme = "light" }
     }
   }
 };
 </script>
 
 <style scoped>
+* {
+  transition: background 0.5s ease-in-out;
+}
+.light {
+  width: 100vw;
+  min-height: 100vh;
+  background: #ffffff;
+}
+.dark {
+  background: #303030;
+  color: #ffffff;
+}
 .animatedbox-enter {
   opacity: 0; 
 }
