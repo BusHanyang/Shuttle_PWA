@@ -46,10 +46,12 @@ export default {};
 
 }
 
-
-
 h1 {
-  margin-left: 0.8rem;
+  font-size: 32px;
+  margin: 0;
+  padding-top: 60px;
+  padding-bottom: 20px;
+  margin-left: 3vw;
   text-align: left;
   font-family: 'noto_sans_kr_regular';
 }
