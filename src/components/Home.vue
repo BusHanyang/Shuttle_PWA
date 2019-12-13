@@ -1,6 +1,7 @@
 <template>
-  <div class="hello">
+  <div class="hybus" :class="(theme == 'dark') ? 'dark' : 'light'">
     <title-component></title-component>
+    <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
     <transition-group 
       v-on:after-enter="animateNextBox"
       name="animatedbox"
@@ -18,43 +19,79 @@
 <script>
 import BoxComponent from "./Box.vue";
 import TitleComponent from "./Title.vue";
+import Toggle from "./Toggle.vue";
 
 let i = 0;
 export default {
   name: "Home",
   components: {
     "box-component": BoxComponent,
-    "title-component": TitleComponent
+    "title-component": TitleComponent,
+    "toggle-component": Toggle
   },
-
+  created() {
+    var current_theme = this.$cookie.get("darkmode_setting")
+    if (current_theme == null) {
+      this.$cookie.set("darkmode_setting", this.theme, { expires: "1Y" });
+    }
+    else {
+      this.theme = current_theme;
+    }
+  },
   data() {
-    // { type: "TAC", parameter: ["left", "right"], key: 0 },
     return {
       name: [
-
         { type: "OTC", parameter: ["shuttlecock_o"], key: 0 },
         { type: "OTC", parameter: ["subway"], key: 1 },
         { type: "OTC", parameter: ["giksa"], key: 2 },
         { type: "OTC", parameter: ["yesulin"], key: 3 },
         { type: "OTC", parameter: ["shuttlecock_i"], key: 4 }
       ],
-      animated: [false, false, false, false, false, false]
+      animated: [false, false, false, false, false, false],
+      theme: "light"
     };
   },
+    mounted() {
+      setTimeout(this.animateNextBox, 100);
+    },
   methods: {
     animateNextBox: function() {
       this.animated.splice(i++, 1, true)
+    },
+    toggle () {
+      if (this.theme === "light") {
+        this.theme = "dark"
+        this.$cookie.set("darkmode_setting", "dark", { expires: "1Y" });
+      }
+      else {
+        this.theme = "light"
+        this.$cookie.set("darkmode_setting", "light", { expires: "1Y" });
+      }
     }
-  },
-  mounted() {
-    setTimeout(this.animateNextBox, 100);
   }
 };
 </script>
 
 <style scoped>
+* {
+  transition: background 0.5s ease-in-out;
+}
+.light {
+  width: 100vw;
+  min-height: 100vh;
+  background: #ffffff;
+}
+.dark {
+  width: 100vw;
+  min-height: 100vh;
+  background: #303030;
+  color: #ffffff;
+}
+.title-span {
+  margin: 15px;
+}
 .animatedbox-enter {
-  opacity: 0;
+  opacity: 0; 
 }
 .animatedbox-enter-active {
   transition: opacity .15s;
