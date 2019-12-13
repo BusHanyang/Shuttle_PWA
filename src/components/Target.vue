@@ -3,7 +3,7 @@
     <span class="bustype">{{ this.buslist !== "hello" ? type : "" }}</span>
     <span>
       <span class="time_num">{{ this.buslist !== "hello" ? (hours > 0 ? hours+":": "") : "" }}</span>
-      <span class="time_num">{{ this.buslist !== "hello" ? minutes + ":" : "" }}</span>
+      <span class="time_num">{{ this.buslist !== "hello" ? (minutes < 10 ? "0" + minutes + ":" : minutes + ":") : "" }}</span>
       <span class="time_num">{{ this.buslist !== "hello" ? (seconds < 10 ? "0" + seconds : seconds) : "" }}</span>
     </span>
     <span class="estimate_test"> 후 도착예정</span>
