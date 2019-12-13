@@ -82,8 +82,13 @@ export default {
   background: #ffffff;
 }
 .dark {
+  width: 100vw;
+  min-height: 100vh;
   background: #303030;
   color: #ffffff;
+}
+.title-span {
+  margin: 15px;
 }
 .animatedbox-enter {
   opacity: 0; 
