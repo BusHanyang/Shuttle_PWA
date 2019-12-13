@@ -30,7 +30,13 @@ export default {
     "toggle-component": Toggle
   },
   created() {
-    this.$cookie.set("darkmode_setting", this.theme, { expires: "1Y" });
+    var current_theme = this.$cookie.get("darkmode_setting")
+    if (current_theme == null) {
+      this.$cookie.set("darkmode_setting", this.theme, { expires: "1Y" });
+    }
+    else {
+      this.theme = current_theme;
+    }
   },
   data() {
     return {
@@ -55,8 +61,12 @@ export default {
     toggle () {
       if (this.theme === "light") {
         this.theme = "dark"
+        this.$cookie.set("darkmode_setting", "dark", { expires: "1Y" });
       }
-      else { this.theme = "light" }
+      else {
+        this.theme = "light"
+        this.$cookie.set("darkmode_setting", "light", { expires: "1Y" });
+      }
     }
   }
 };
