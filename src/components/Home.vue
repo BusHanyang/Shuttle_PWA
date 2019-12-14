@@ -5,7 +5,8 @@
     <transition-group 
       v-on:after-enter="animateNextBox"
       name="animatedbox"
-      tag="div" >
+      tag="div"
+      class="boxes">
       <box-component
         v-for="item in name"
         :key="item.key"
@@ -76,14 +77,14 @@ export default {
 * {
   transition: background 0.5s ease-in-out;
 }
-.light {
+.hybus {
   width: 100vw;
   min-height: 100vh;
+}
+.light {
   background: #ffffff;
 }
 .dark {
-  width: 100vw;
-  min-height: 100vh;
   background: #303030;
   color: #ffffff;
 }
@@ -95,5 +96,8 @@ export default {
 }
 .animatedbox-enter-active {
   transition: opacity .15s;
+}
+.boxes {
+  padding-bottom: 1.071rem;
 }
 </style>
