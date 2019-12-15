@@ -1,6 +1,7 @@
 <template>
   <div class="hybus" :class="(theme == 'dark') ? 'dark' : 'light'">
     <title-component></title-component>
+    <button class="refresher" v-on:click="refresh">Refresh</button>
     <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
     <transition-group 
       v-on:after-enter="animateNextBox"
@@ -68,6 +69,9 @@ export default {
         this.theme = "light"
         this.$cookie.set("darkmode_setting", "light", { expires: "1Y" });
       }
+    },
+    refresh () {
+      this.$router.go();
     }
   }
 };
@@ -76,6 +80,10 @@ export default {
 <style scoped>
 * {
   transition: background 0.5s ease-in-out;
+}
+.refresher {
+  border-radius: 20px;
+  border-radius: 50%;
 }
 .hybus {
   width: 100vw;
