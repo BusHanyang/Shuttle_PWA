@@ -1,7 +1,11 @@
 <template>
   <div class="hybus" :class="(theme == 'dark') ? 'dark' : 'light'">
     <title-component></title-component>
-    <button class="refresher" v-on:click="refresh">R</button>
+    <button class="refresher" 
+      :class="(theme == 'dark') ? 'dark' : 'light'"
+      v-on:click="refresh">
+      <span>R</span>
+    </button>
     <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
     <transition-group 
       v-on:after-enter="animateNextBox"
@@ -82,10 +86,14 @@ export default {
   transition: background 0.5s ease-in-out;
 }
 .refresher {
-  padding: 4px;
-  margin: 4px;
-  border-radius: 20px;
+  position: absolute;
+  top: 50px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
   border-radius: 50%;
+  background: #ffffff;
 }
 .hybus {
   width: 100vw;
