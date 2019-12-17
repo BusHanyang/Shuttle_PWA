@@ -1,11 +1,6 @@
 <template>
   <div class="hybus" :class="(theme == 'dark') ? 'dark' : 'light'">
     <title-component></title-component>
-    <button class="refresher" 
-      :class="(theme == 'dark') ? 'dark' : 'light'"
-      v-on:click="refresh">
-      <span>R</span>
-    </button>
     <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
     <transition-group 
       v-on:after-enter="animateNextBox"
@@ -26,6 +21,7 @@
 import BoxComponent from "./Box.vue";
 import TitleComponent from "./Title.vue";
 import Toggle from "./Toggle.vue";
+import PullToRefresh from 'pulltorefreshjs';
 
 let i = 0;
 export default {
@@ -59,6 +55,15 @@ export default {
   },
     mounted() {
       setTimeout(this.animateNextBox, 100);
+      const ptr = PullToRefresh.init({
+        mainElement: ".hybus",
+        instructionsPullToRefresh: "아래로 당겨서 새로고침",
+        instructionsReleaseToRefresh: "새로고침을 하려면 화면을 놓아주세요",
+        instructionsRefreshing: "시간표를 불러오는 중",
+        refresh() {
+          this.$router.go();
+        }
+      });
     },
   methods: {
     animateNextBox: function() {
@@ -73,9 +78,6 @@ export default {
         this.theme = "light"
         this.$cookie.set("darkmode_setting", "light", { expires: "1Y" });
       }
-    },
-    refresh () {
-      this.$router.go();
     }
   }
 };
