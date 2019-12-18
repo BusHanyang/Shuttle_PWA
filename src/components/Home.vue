@@ -21,6 +21,7 @@
 import BoxComponent from "./Box.vue";
 import TitleComponent from "./Title.vue";
 import Toggle from "./Toggle.vue";
+import PullToRefresh from 'pulltorefreshjs';
 
 let i = 0;
 export default {
@@ -54,6 +55,15 @@ export default {
   },
     mounted() {
       setTimeout(this.animateNextBox, 100);
+      const ptr = PullToRefresh.init({
+        mainElement: ".hybus",
+        instructionsPullToRefresh: "아래로 당겨서 새로고침",
+        instructionsReleaseToRefresh: "새로고침을 하려면 화면을 놓아주세요",
+        instructionsRefreshing: "시간표를 불러오는 중",
+        refresh() {
+          this.$router.go();
+        }
+      });
     },
   methods: {
     animateNextBox: function() {
@@ -76,6 +86,16 @@ export default {
 <style scoped>
 * {
   transition: background 0.5s ease-in-out;
+}
+.refresher {
+  position: absolute;
+  top: 50px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background: #ffffff;
 }
 .hybus {
   width: 100vw;
