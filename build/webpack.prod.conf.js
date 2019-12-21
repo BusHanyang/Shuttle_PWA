@@ -121,7 +121,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       swSrc: "./src/src-sw.js",
       swDest: "sw.js",
       // Cache fonts, html files and icons
-      include: [/\.woff$/, /\.woff2$/, /\.eot$/, /\.png$/, /\.html$/],
+      include: [/\.woff$/, /\.woff2$/, /\.eot$/, /\.png$/],
+      exclude: [/\.map$/, /^manifest.*\.js$/, /\.js$/, /\.webmanifest$/, /\.css$/]
     })
   ]
 })
