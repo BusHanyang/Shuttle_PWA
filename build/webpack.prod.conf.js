@@ -123,9 +123,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       // Cache fonts, html files and icons
       include: [/\.woff$/, /\.woff2$/, /\.eot$/, /\.png$/, /\.html$/],
     })
-    // new WorkboxPlugin.GenerateSW({
-    //   exclude: 'service-worker.js'
-    // })
   ]
 })
 
