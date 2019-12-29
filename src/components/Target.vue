@@ -3,14 +3,20 @@
     <span class="bustype">{{ this.buslist !== "hello" ? type : "" }}</span>
     <span>
       <span class="time_num">{{ this.buslist !== "hello" ? (hours > 0 ? hours + " :" : "") : "" }}</span>
-      <span class="time_num">{{ this.buslist !== "hello" ? (minutes < 10 ? "0" + minutes + " :" : minutes + " :") : "" }}</span>
-      <span class="time_num">{{ this.buslist !== "hello" ? (seconds < 10 ? "0" + seconds : seconds) : "" }}</span>
+      <span
+        class="time_num"
+      >{{ this.buslist !== "hello" ? (minutes < 10 ? "0" + minutes + " :" : minutes + " :") : "" }}</span>
+      <span
+        class="time_num"
+      >{{ this.buslist !== "hello" ? (seconds < 10 ? "0" + seconds : seconds) : "" }}</span>
     </span>
-    <span class="estimate_test"> 후 도착예정</span>
+    <span class="estimate_test">후 도착예정</span>
   </div>
 </template>
 
 <script>
+import { EventBus } from "../event-bus";
+
 export default {
   name: "Target",
   created() {
@@ -25,12 +31,12 @@ export default {
     }
   },
 
-  props: ["buslist","a"],
+  props: ["where", "buslist", "a"],
 
   data() {
     return {
       now: Math.floor(new Date().getTime() / 1000),
-      i: 0+this.a
+      i: 0 + this.a
     };
   },
 
@@ -38,13 +44,10 @@ export default {
     type() {
       let j = this.buslist.length;
       if (this.buslist[this.i].type == "F") {
-        return "운행종료"
-      }
-      else {
+        return "운행종료";
+      } else {
         if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
-          if (this.i < j - 1) {
-            this.i++;
-          }
+          EventBus.$emit("imdone" + this.where, this.where + this.i);
         } else {
           switch (this.buslist[this.i].type) {
             case "DH":
@@ -52,11 +55,11 @@ export default {
             case "DY":
               return "예술인행";
             case "C":
-              return "순환노선"
+              return "순환노선";
             case "R":
-              return "기숙사행"
+              return "기숙사행";
             case "NA":
-              return "운행안함"
+              return "운행안함";
             default:
               return "셔틀콕행";
           }
@@ -67,54 +70,26 @@ export default {
       let j = this.buslist.length;
       if (this.buslist[this.i].type == "F") {
         return 0;
-      }
-      else {
-        if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
-          if (this.i < j - 1) {
-            this.i++;
-            return 0;
-          } else {
-            return 0;
-          }
-        } else {
-          return Math.floor((this.buslist[this.i].time - this.now) / 60 / 60) % 24;
-        }
+      } else {
+        return (
+          Math.floor((this.buslist[this.i].time - this.now) / 60 / 60) % 24
+        );
       }
     },
     minutes() {
       let j = this.buslist.length;
       if (this.buslist[this.i].type == "F") {
         return 0;
-      }
-      else {
-        if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
-          if (this.i < j - 1) {
-            this.i++;
-            return 0;
-          } else {
-            return 0;
-          }
-        } else {
-          return Math.floor((this.buslist[this.i].time - this.now) / 60) % 60;
-        }
+      } else {
+        return Math.floor((this.buslist[this.i].time - this.now) / 60) % 60;
       }
     },
     seconds() {
       let j = this.buslist.length;
       if (this.buslist[this.i].type == "F") {
         return 0;
-      }
-      else { 
-        if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
-          if (this.i < j - 1) {
-            this.i++;
-            return 0;
-          } else {
-            return 0;
-          }
-        } else {
-          return (this.buslist[this.i].time - this.now) % 60;
-        }
+      } else {
+        return (this.buslist[this.i].time - this.now) % 60;
       }
     }
   }
@@ -122,7 +97,7 @@ export default {
 </script>
 
 <style scoped>
-  /*1rem == 14px*/
+/*1rem == 14px*/
 .target {
   display: table;
 }
@@ -134,17 +109,16 @@ export default {
 }
 
 .time {
-
   font-size: 1rem;
 }
 
-  .time_num {
-    font-size: 1.42rem;
-    font-weight: bold;
-    vertical-align: text-bottom;
-  }
+.time_num {
+  font-size: 1.42rem;
+  font-weight: bold;
+  vertical-align: text-bottom;
+}
 
-  .estimate_test {
-    font-size: 1rem;
-  }
+.estimate_test {
+  font-size: 1rem;
+}
 </style>
