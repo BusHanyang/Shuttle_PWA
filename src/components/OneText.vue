@@ -41,10 +41,7 @@ export default {
     };
   },
   created() {
-    console.log("imdone" + this.where);
     EventBus.$on("imdone" + this.where, wru => {
-      console.log("hello" + this.where);
-      console.log(wru);
       this.buslst.shift();
       let tempstr = { time: 0, type: "F" };
       this.buslst.push(tempstr);
