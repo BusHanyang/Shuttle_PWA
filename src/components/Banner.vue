@@ -6,7 +6,7 @@
 <style lang="css">
 .banner {
   /*1rem == 14px*/
-  list-style-type: none;3
+  list-style-type: none;
   padding: 0.357rem;
   border: 0 white;
   border-radius: 0.571rem;
