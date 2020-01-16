@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <span class="mode-text"> <img id="newyear" src= "../assets/images/Hanyang_newyear.png"> HAPPY 2020 </span>
+    <div class="banner_text"> <img id="newyear" src= "../assets/images/Hanyang_newyear.png"><div id="text">HAPPY 2020</div> </div>
   </div>
 </template>
 <style lang="css">
@@ -16,6 +16,10 @@
 #newyear{
   width: 3rem;
   height: 3rem;
-  
+  padding-top: 8px;
+}
+#text{
+  font-size: 18px;
+  padding-bottom: 8px;
 }
 </style>
