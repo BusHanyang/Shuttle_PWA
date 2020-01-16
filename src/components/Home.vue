@@ -2,6 +2,7 @@
   <div class="hybus" :class="(theme == 'dark') ? 'dark' : 'light'">
     <title-component></title-component>
     <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
+    <banner-component></banner-component>
     <transition-group 
       v-on:after-enter="animateNextBox"
       name="animatedbox"
@@ -21,6 +22,7 @@
 import BoxComponent from "./Box.vue";
 import TitleComponent from "./Title.vue";
 import Toggle from "./Toggle.vue";
+import Banner from "./Banner.vue";
 import PullToRefresh from 'pulltorefreshjs';
 
 let i = 0;
@@ -29,7 +31,8 @@ export default {
   components: {
     "box-component": BoxComponent,
     "title-component": TitleComponent,
-    "toggle-component": Toggle
+    "toggle-component": Toggle,
+    "banner-component": Banner
   },
   created() {
     var current_theme = this.$cookie.get("darkmode_setting")
