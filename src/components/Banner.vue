@@ -1,6 +1,9 @@
 <template>
   <div class="banner">
-    <div class="banner_text"> <img id="newyear" src= "../assets/images/Hanyang_newyear.png"><div id="text">HAPPY 2020</div> </div>
+    <div class="banner_text">
+      <img id="newyear" src="../assets/images/Hanyang_newyear.png" />
+      <div id="text" onclick="window.open('https://www.facebook.com/HanyangUniversityErica/posts/2260149640952351')">공지 : 설 연휴간 셔틀버스 운행정지 안내</div>
+    </div>
   </div>
 </template>
 <style lang="css">
@@ -21,5 +24,7 @@
 #text{
   font-size: 18px;
   padding-bottom: 8px;
+  color: red;
+  font-weight: bold;
 }
 </style>
