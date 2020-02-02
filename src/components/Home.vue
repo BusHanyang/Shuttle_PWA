@@ -2,7 +2,17 @@
   <div class="hybus" :class="(theme == 'dark') ? 'dark' : 'light'">
     <title-component></title-component>
     <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
-    <banner-component></banner-component>
+    <carousel
+      :per-page="1"
+      :pagination-enabled="false"
+      :autoplay="true"
+      :autoplay-timeout=5000
+      :loop="true">
+      <slide class="slide"><banner-component :imgName="img[0]"></banner-component></slide>
+      <slide class="slide"><banner-component :imgName="img[1]"></banner-component></slide>
+      <slide class="slide"><banner-component :imgName="img[2]"></banner-component></slide>
+      <slide class="slide"><banner-component :imgName="img[3]"></banner-component></slide>
+    </carousel>
     <transition-group 
       v-on:after-enter="animateNextBox"
       name="animatedbox"
@@ -51,6 +61,12 @@ export default {
         { type: "OTC", parameter: ["giksa"], key: 2 },
         { type: "OTC", parameter: ["yesulin"], key: 3 },
         { type: "OTC", parameter: ["shuttlecock_i"], key: 4 }
+      ],
+      img: [
+        "banner1.jpeg",
+        "banner2.jpeg",
+        "banner3.jpeg",
+        "banner4.jpeg"
       ],
       animated: [false, false, false, false, false, false],
       theme: "light"
@@ -122,5 +138,11 @@ export default {
 }
 .boxes {
   padding-bottom: 1.071rem;
+}
+.carousel {
+  padding-top: 5px;
+}
+.slide {
+  box-shadow:0 0 2.142rem 0.142rem rgba(0, 0, 0, 0.15);
 }
 </style>
