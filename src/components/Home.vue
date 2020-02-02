@@ -7,13 +7,14 @@
       :pagination-enabled="false"
       :autoplay="true"
       :autoplay-timeout=5000
-      :loop="true">
+      :loop="true"
+      :touch-drag="true">
       <slide class="slide"><banner-component :imgName="img[0]"></banner-component></slide>
       <slide class="slide"><banner-component :imgName="img[1]"></banner-component></slide>
       <slide class="slide"><banner-component :imgName="img[2]"></banner-component></slide>
       <slide class="slide"><banner-component :imgName="img[3]"></banner-component></slide>
     </carousel>
-    <transition-group 
+    <transition-group
       v-on:after-enter="animateNextBox"
       name="animatedbox"
       tag="div"
@@ -131,7 +132,7 @@ export default {
   margin: 15px;
 }
 .animatedbox-enter {
-  opacity: 0; 
+  opacity: 0;
 }
 .animatedbox-enter-active {
   transition: opacity .15s;
