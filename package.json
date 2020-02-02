@@ -14,6 +14,7 @@
     "pulltorefreshjs": "^0.1.20",
     "roboto-fontface": "*",
     "vue": "^2.5.2",
+    "vue-carousel": "^0.18.0",
     "vue-cookie": "^1.1.4",
     "vue-router": "^3.0.1"
   },
