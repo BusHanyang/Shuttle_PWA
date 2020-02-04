@@ -1,8 +1,6 @@
 <template>
   <div class="banner">
-    <a href="https://www.facebook.com/HanyangUniversityErica/posts/2260149640952351" target="_blank">
-      <img id="newyear" src="../assets/images/newyear_Banner.jpg" />
-    </a>
+    
   </div>
 </template>
 <style lang="css">
