@@ -11,8 +11,6 @@
       :touch-drag="true">
       <slide class="slide"><banner-component :imgName="img[0]"></banner-component></slide>
       <slide class="slide"><banner-component :imgName="img[1]"></banner-component></slide>
-      <slide class="slide"><banner-component :imgName="img[2]"></banner-component></slide>
-      <slide class="slide"><banner-component :imgName="img[3]"></banner-component></slide>
     </carousel>
     <transition-group
       v-on:after-enter="animateNextBox"
@@ -64,10 +62,8 @@ export default {
         { type: "OTC", parameter: ["shuttlecock_i"], key: 4 }
       ],
       img: [
-        "banner1.jpeg",
-        "banner2.jpeg",
-        "banner3.jpeg",
-        "banner4.jpeg"
+        "banner1.png",
+        "banner2.png",
       ],
       animated: [false, false, false, false, false, false],
       theme: "light"

@@ -1,8 +1,8 @@
 <template>
   <div class="banner">
-    <a href="https://www.facebook.com/HanyangUniversityErica/posts/2260149640952351" target="_blank">
+    <!-- <a href="https://www.facebook.com/HanyangUniversityErica/posts/2260149640952351" target="_blank"> -->
       <img class="newyear" :src="`/static/banner/${this.imgName}`"/>
-    </a>
+    <!-- </a> -->
   </div>
 </template>
 <script>
