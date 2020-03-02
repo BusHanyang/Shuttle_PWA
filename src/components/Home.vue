@@ -10,11 +10,8 @@
       :loop="true"
       :touch-drag="true"
     >
-      <slide class="slide">
-        <banner-component :imgName="img[0]"></banner-component>
-      </slide>
-      <slide class="slide">
-        <banner-component :imgName="img[1]"></banner-component>
+      <slide v-for="(item,idx) in img" :key="idx*2" class="slide">
+        <banner-component :imgName="img[idx]"></banner-component>
       </slide>
     </carousel>
     <transition-group v-on:after-enter="animateNextBox" name="animatedbox" tag="div" class="boxes">
