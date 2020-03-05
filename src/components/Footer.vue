@@ -1,20 +1,34 @@
 <template>
   <footer>
-    <p>
-      <a href="mailto:admin@hybus.app" class="contact">
-        &nbsp;✉️문의하기&nbsp;
-      </a>
-      <a v-on:click="modal('usage')" class="usage">&nbsp;📋사용법 &nbsp;</a>
-      <a v-on:click="modal('coffee')" class="coffee">
-        &nbsp;☕개발자에게 커피사기&nbsp;
-      </a>
-      <a v-on:click="modal('changelog')" class="coffee">
-        &nbsp;📜변경사항&nbsp;
-      </a>
+    <span>
+      <span>
+        <a href="mailto:admin@hybus.app" class="contact">
+          <span>&nbsp;✉️문의하기&nbsp;</span>
+        </a>
+      </span>
+
+      <span>
+        <a v-on:click="modal('usage')" class="usage">
+          <span>&nbsp;📋사용법 &nbsp;</span>
+        </a>
+      </span>
+
+      <span>
+        <a v-on:click="modal('coffee')" class="coffee">
+          <span>&nbsp;☕개발자에게 커피사기&nbsp;</span>
+        </a>
+      </span>
+
+      <span>
+        <a v-on:click="modal('changelog')" class="coffee">
+          <span>&nbsp;📜변경사항&nbsp;</span>
+        </a>
+      </span>
+
       <br />
       <br />
       COPYRIGHT © 2020 BusHanyang. All rights reserved
-    </p>
+    </span>
   </footer>
 </template>
 
@@ -42,13 +56,16 @@ footer {
 .contact {
   text-decoration: none;
   color: #2c3e50;
+  white-space:nowrap;
 }
 .coffee {
   text-decoration: none;
   color: #2c3e50;
+  white-space:nowrap;
 }
 .usage {
   text-decoration: none;
   color: #2c3e50;
+  white-space:nowrap;
 }
 </style>
