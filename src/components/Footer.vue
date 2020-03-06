@@ -55,17 +55,18 @@ footer {
 }
 .contact {
   text-decoration: none;
-  color: #2c3e50;
   white-space:nowrap;
+  color: inherit;
 }
 .coffee {
   text-decoration: none;
-  color: #2c3e50;
   white-space:nowrap;
 }
 .usage {
   text-decoration: none;
-  color: #2c3e50;
   white-space:nowrap;
 }
+/* .usage{
+  color: inherit;
+} */
 </style>
