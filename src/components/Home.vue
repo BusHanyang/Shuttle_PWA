@@ -1,27 +1,58 @@
 <template>
-  <div class="hybus" :class="(theme == 'dark') ? 'dark' : 'light'">
+  <div class="hybus" :class="theme == 'dark' ? 'dark' : 'light'">
     <title-component></title-component>
     <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
-    <carousel
-      :per-page="1"
-      :pagination-enabled="false"
-      :autoplay="true"
-      :autoplay-timeout="5000"
-      :loop="true"
-      :touch-drag="true"
-    >
-      <slide v-for="(item,idx) in img" :key="idx*2" class="slide">
-        <banner-component :imgName="img[idx]"></banner-component>
-      </slide>
-    </carousel>
-    <transition-group v-on:after-enter="animateNextBox" name="animatedbox" tag="div" class="boxes">
-      <box-component v-for="(item,idx) in name" :key="idx*2" :val="item" v-show="animated >= idx"></box-component>
-      <footer-component :key="name.length*2" v-show="animated >= name.length"></footer-component>
-    </transition-group>
+    <div class="content">
+      <template v-if="this.route == 'home'">
+        <carousel
+          :per-page="1"
+          :pagination-enabled="false"
+          :autoplay="true"
+          :autoplay-timeout="5000"
+          :loop="true"
+          :touch-drag="true"
+        >
+          <slide v-for="(item, idx) in img" :key="idx * 2" class="slide">
+            <banner-component :imgName="img[idx]"></banner-component>
+          </slide>
+        </carousel>
+        <transition-group
+          v-on:after-enter="animateNextBox"
+          name="animatedbox"
+          tag="div"
+          class="boxes"
+        >
+          <box-component
+            v-for="(item, idx) in name"
+            :key="idx * 2"
+            :val="item"
+            v-show="animated >= idx"
+          >
+          </box-component>
+        </transition-group>
+      </template>
+      <a v-on:click="modal('home')" v-if="this.route != 'home'">
+        돌아가기<br />
+      </a>
+      <template v-if="this.route == 'usage'">
+        This is 사용법
+      </template>
+      <template v-if="this.route == 'coffee'">
+        This is coffee
+      </template>
+      <template v-if="this.route == 'changelog'">
+        This is changelog
+      </template>
+    </div>
+    <footer-component
+      :key="1"
+      v-show="animated == name.length"
+    ></footer-component>
   </div>
 </template>
 
 <script>
+import { EventBus } from "../event-bus";
 import BoxComponent from "./Box.vue";
 import TitleComponent from "./Title.vue";
 import Toggle from "./Toggle.vue";
@@ -45,6 +76,9 @@ export default {
     } else {
       this.theme = current_theme;
     }
+    EventBus.$on("modal", which => {
+      this.route = which;
+    });
   },
   data() {
     return {
@@ -55,9 +89,10 @@ export default {
         { type: "OTC", parameter: ["yesulin"] },
         { type: "OTC", parameter: ["shuttlecock_i"] }
       ],
-      animated: 0,
       img: ["banner1.png", "banner2.png"],
-      theme: "light"
+      theme: "light",
+      animated: 0,
+      route: "home"
     };
   },
   mounted() {
@@ -84,6 +119,9 @@ export default {
         this.theme = "light";
         this.$cookie.set("darkmode_setting", "light", { expires: "1Y" });
       }
+    },
+    modal(which) {
+      EventBus.$emit("modal", which);
     }
   }
 };
@@ -113,6 +151,9 @@ export default {
 .dark {
   background: #303030;
   color: #ffffff;
+}
+.content {
+  min-height: 52em;
 }
 .title-span {
   margin: 15px;
