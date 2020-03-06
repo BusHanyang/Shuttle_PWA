@@ -51,7 +51,7 @@ footer {
   padding: 0.357rem;
   border: 0 white;
   border-radius: 0.571rem;
-  margin: 0 0.357rem 1.071rem;
+  margin: 0 0.357rem 0;
 }
 .contact {
   text-decoration: none;
