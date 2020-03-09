@@ -8,16 +8,16 @@
       </span>
 
       <span>
-        <a v-on:click="modal('usage')" class="usage">
+        <a :href="this.dlink" class="usage">
           <span>&nbsp;📋사용법 &nbsp;</span>
         </a>
       </span>
 
-      <span>
+      <!-- <span>
         <a v-on:click="modal('coffee')" class="coffee">
           <span>&nbsp;☕개발자에게 커피사기&nbsp;</span>
         </a>
-      </span>
+      </span> -->
 
       <span>
         <a v-on:click="modal('changelog')" class="coffee">
@@ -34,11 +34,22 @@
 
 <script>
 import { EventBus } from "../event-bus";
+import { isIOS } from 'mobile-device-detect';
 
 export default {
   methods: {
     modal(which) {
       EventBus.$emit("modal", which);
+    }
+  },
+  created() {
+    this.dlink = isIOS ? this.ios : this.android
+  },
+  data() {
+    return {
+      android: "https://drive.google.com/file/d/1OG2B9gU2qZhsTz8dHdPXMWjhCrjNW0MC/view",
+      ios: "https://drive.google.com/file/d/1OcwMw3aUB7q6leZyWP8g6Piaxscl4rgC/view",
+      dlink: ""
     }
   }
 };
@@ -65,6 +76,7 @@ footer {
 .usage {
   text-decoration: none;
   white-space:nowrap;
+  color: inherit;
 }
 /* .usage{
   color: inherit;

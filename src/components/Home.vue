@@ -41,7 +41,7 @@
         This is coffee
       </template>
       <template v-if="this.route == 'changelog'">
-        This is changelog
+        <change-log></change-log>
       </template>
     </div>
     <footer-component
@@ -59,10 +59,12 @@ import Toggle from "./Toggle.vue";
 import Banner from "./Banner.vue";
 import PullToRefresh from "pulltorefreshjs";
 import Footer from "./Footer.vue";
+import ChangeLog from "./ChangeLog.vue";
 
 export default {
   name: "Home",
   components: {
+    "change-log": ChangeLog,
     "box-component": BoxComponent,
     "title-component": TitleComponent,
     "toggle-component": Toggle,
