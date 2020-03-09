@@ -3,6 +3,12 @@
         <h1 class="changelog_title">Change Log</h1>
         <div class="changelog">
             <div class="block">
+                <h4>WEB - 2020.03.09</h4>
+                <p>&#149 사용안내 링크 추가, 변경사항 링크 추가</p>
+                <p>&#149 정식 배포</p>
+            </div>
+
+            <div class="block">
                 <h4>WEB - 2020.03.06</h4>
                 <p>&#149 바닥글 삽입 - 사용안내, 후원, 변경사항</p>
             </div>
