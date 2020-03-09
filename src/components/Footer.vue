@@ -13,11 +13,11 @@
         </a>
       </span>
 
-      <span>
+      <!-- <span>
         <a v-on:click="modal('coffee')" class="coffee">
           <span>&nbsp;☕개발자에게 커피사기&nbsp;</span>
         </a>
-      </span>
+      </span> -->
 
       <span>
         <a v-on:click="modal('changelog')" class="coffee">
