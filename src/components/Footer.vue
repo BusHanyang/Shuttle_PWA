@@ -13,11 +13,11 @@
         </a>
       </span>
 
-      <!-- <span>
-        <a v-on:click="modal('coffee')" class="coffee">
-          <span>&nbsp;☕개발자에게 커피사기&nbsp;</span>
+      <span>
+        <a href="https://buymeacoff.ee/hybus" class="coffee">
+          <span>&nbsp;☕후원하기&nbsp;</span>
         </a>
-      </span> -->
+      </span>
 
       <span>
         <a v-on:click="modal('changelog')" class="coffee">
@@ -72,6 +72,7 @@ footer {
 .coffee {
   text-decoration: none;
   white-space:nowrap;
+  color: inherit;
 }
 .usage {
   text-decoration: none;
