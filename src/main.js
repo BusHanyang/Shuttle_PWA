@@ -2,11 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import VueGtag from 'vue-gtag'
 import router from './router'
 
 var VueCookie = require('vue-cookie');
 
-
+Vue.use(VueGtag, {
+  config: {
+    id: 'UA-167215120-1'
+  }
+});
 Vue.use(VueCookie);
 Vue.config.productionTip = false
 
