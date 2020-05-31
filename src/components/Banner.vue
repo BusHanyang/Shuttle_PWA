@@ -1,15 +1,21 @@
 <template>
   <div class="banner">
-    <!-- <a href="https://www.facebook.com/HanyangUniversityErica/posts/2260149640952351" target="_blank"> -->
+    <a href="https://www.instagram.com/p/CAY7V9snILe/" target="_blank">
     <img class="newyear" :src="`/static/banner/${this.imgName}`" />
-    <!-- </a> -->
+    </a>
   </div>
 </template>
 <script>
 export default {
   name: "BannerComponent",
-  props: ["imgName"]
+  props: ["imgName"],
 };
+// if(props.imgName=="banner3"){
+//   url: "https://www.instagram.com/p/CAY7V9snILe/";
+// }
+// else if(props.imgName=="banner4"){
+//   url: "https://www.instagram.com/p/CAcjlfmHoUM/";
+// };
 </script>
 <style lang="css">
 .banner {
