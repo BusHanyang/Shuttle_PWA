@@ -1,8 +1,11 @@
 <template>
   <div class="banner">
-    <a href="https://www.instagram.com/p/CAY7V9snILe/" target="_blank">
+    <template v-if="this.imgName == 'banner3.png'"><a href="https://www.instagram.com/p/CAY7V9snILe/" target="_blank">
     <img class="newyear" :src="`/static/banner/${this.imgName}`" />
-    </a>
+    </a></template>
+    <template v-if="this.imgName == 'banner4.png'"><a href="https://www.instagram.com/p/CAcjlfmHoUM/" target="_blank">
+    <img class="newyear" :src="`/static/banner/${this.imgName}`" />
+    </a></template>
   </div>
 </template>
 <script>
@@ -10,12 +13,7 @@ export default {
   name: "BannerComponent",
   props: ["imgName"],
 };
-// if(props.imgName=="banner3"){
-//   url: "https://www.instagram.com/p/CAY7V9snILe/";
-// }
-// else if(props.imgName=="banner4"){
-//   url: "https://www.instagram.com/p/CAcjlfmHoUM/";
-// };
+
 </script>
 <style lang="css">
 .banner {
