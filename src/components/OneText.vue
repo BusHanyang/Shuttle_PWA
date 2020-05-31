@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     parseBusList(stn, tdate) {
-      fetch("https://hyu-shuttlebus.appspot.com/" + stn)
+      fetch("https://api.hybus.app/" + stn)
         .then(res => res.json())
         .then(res => {
           let date = tdate;
