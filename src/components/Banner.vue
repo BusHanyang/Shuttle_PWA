@@ -11,7 +11,7 @@
 <script>
 export default {
   name: "BannerComponent",
-  props: ["imgName"],
+  props: ["imgName"]
 };
 
 </script>
