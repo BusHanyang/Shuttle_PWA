@@ -1,8 +1,11 @@
 <template>
   <div class="banner">
-    <!-- <a href="https://www.facebook.com/HanyangUniversityErica/posts/2260149640952351" target="_blank"> -->
+    <template v-if="this.imgName == 'banner3.png'"><a href="https://www.instagram.com/p/CAY7V9snILe/" target="_blank">
     <img class="newyear" :src="`/static/banner/${this.imgName}`" />
-    <!-- </a> -->
+    </a></template>
+    <template v-if="this.imgName == 'banner4.png'"><a href="https://www.instagram.com/p/CAcjlfmHoUM/" target="_blank">
+    <img class="newyear" :src="`/static/banner/${this.imgName}`" />
+    </a></template>
   </div>
 </template>
 <script>
@@ -10,6 +13,7 @@ export default {
   name: "BannerComponent",
   props: ["imgName"]
 };
+
 </script>
 <style lang="css">
 .banner {
