@@ -126,7 +126,7 @@ export default {
     modal(which) {
       EventBus.$emit("modal", which);
     }
-  },
+  }
 };
 </script>
 
