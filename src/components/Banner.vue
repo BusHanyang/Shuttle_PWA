@@ -3,10 +3,10 @@
     <template v-if="this.imgName == 'banner3.png'"><a href="https://www.instagram.com/p/CA4AsIJneY8/" target="_blank">
     <img class="newyear" :src="`/static/banner/${this.imgName}`" />
     </a></template>
-    <template v-else-if="this.imgName == 'banner4.png'"><a href="https://www.instagram.com/p/CAcjlfmHoUM/" target="_blank">
+    <template v-else-if="this.imgName == 'banner4.png'"><a href="https://www.instagram.com/p/CAY7V9snILe/" target="_blank">
     <img class="newyear" :src="`/static/banner/${this.imgName}`" />
     </a></template>
-    <template v-else-if="this.imgName == 'banner5.png'"><a href="https://www.instagram.com/p/CAY7V9snILe/" target="_blank">
+    <template v-else-if="this.imgName == 'banner5.png'"><a href="https://www.instagram.com/p/CAcjlfmHoUM/" target="_blank">
     <img class="newyear" :src="`/static/banner/${this.imgName}`" />
     </a></template>
   </div>
