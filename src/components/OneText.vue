@@ -23,6 +23,7 @@
 import { EventBus } from "../event-bus";
 import BigName from "./BigName";
 import Target from "./Target";
+import util from "../util";
 
 export default {
   name: "OneText",
@@ -56,9 +57,44 @@ export default {
   },
   methods: {
     parseBusList(stn, tdate) {
-      fetch("https://api.hybus.app/" + stn)
+      let dayKind = util.getDayKind(); //week, weekend
+      let dateKind = util.getDateKind(); //semester, vacation_session, vacation
+      let filename = '';
+      if (util.isHalt() === 'halted') {
+        let buslst = [];
+        while (buslst.length < 5) {
+          const tempstr = { time: 0, type: "F" };
+          buslst.push(tempstr);
+        }
+        return;
+      }
+
+      console.log(stn)
+      switch (stn) {
+        case 'shuttlecock_o':
+          filename = `Shuttlecock_O_${dayKind}.json`;
+          break;
+        case 'subway':
+          filename = `Subway_${dayKind}.json`;
+          break;
+        case 'giksa':
+          filename = `Residence_${dayKind}.json`;
+          break;
+        case 'yesulin':
+          filename = `YesulIn_${dayKind}.json`;
+          break;
+        case 'shuttlecock_i':
+          filename = `Shuttlecock_I_${dayKind}.json`;
+          break;
+      }
+      console.log(filename)
+
+      fetch(`https://cdn.hybus.app/timetable/${dateKind}/${dayKind}/${filename}`)
         .then(res => res.json())
         .then(res => {
+          //for test
+
+          res = _res;
           let date = tdate;
           let year = date.getFullYear();
           let month = date.getMonth() + 1;
