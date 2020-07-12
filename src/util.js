@@ -1,7 +1,6 @@
 import moment from 'moment';
 import data from './settings.json'
 /*load setting value from json file*/
-console.log(data)
 
 const now = moment()
     .utcOffset("+0900")
@@ -58,7 +57,6 @@ const util = {
 
     isHalt() {
     const haltList = data.calendar[4].halt;
-    console.log(haltList);
     if (haltList.indexOf(now) !== -1) {
         return "halted";
         } else {

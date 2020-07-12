@@ -69,7 +69,6 @@ export default {
         return;
       }
 
-      console.log(stn)
       switch (stn) {
         case 'shuttlecock_o':
           filename = `Shuttlecock_O_${dayKind}.json`;
@@ -87,14 +86,9 @@ export default {
           filename = `Shuttlecock_I_${dayKind}.json`;
           break;
       }
-      console.log(filename)
-
       fetch(`https://cdn.hybus.app/timetable/${dateKind}/${dayKind}/${filename}`)
         .then(res => res.json())
         .then(res => {
-          //for test
-
-          res = _res;
           let date = tdate;
           let year = date.getFullYear();
           let month = date.getMonth() + 1;
@@ -105,8 +99,9 @@ export default {
 
           let buslst = [];
           let tempstr = {};
-          for (let i = 0; i < res.length; i++) {
-            let temp = res[i].time.split(":");
+          let obj_idx = filename.split(".")[0].toLowerCase()
+          for (let i = 0; i < res[obj_idx].length; i++) {
+            let temp = res[obj_idx][i].time.split(":");
             if (
               parseInt(temp[0]) * 60 +
                 parseInt(temp[1]) -
@@ -117,7 +112,7 @@ export default {
               let tmpdate = Math.floor(
                 new Date(year, month - 1, day, temp[0], temp[1], sec) / 1000
               );
-              tempstr = { time: tmpdate, type: res[i].type };
+              tempstr = { time: tmpdate, type: res[obj_idx][i].type };
               buslst.push(tempstr);
             }
           }
