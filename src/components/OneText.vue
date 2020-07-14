@@ -23,6 +23,7 @@
 import { EventBus } from "../event-bus";
 import BigName from "./BigName";
 import Target from "./Target";
+import util from "../util";
 
 export default {
   name: "OneText",
@@ -56,7 +57,36 @@ export default {
   },
   methods: {
     parseBusList(stn, tdate) {
-      fetch("https://api.hybus.app/" + stn)
+      let dayKind = util.getDayKind(); //week, weekend
+      let dateKind = util.getDateKind(); //semester, vacation_session, vacation
+      let filename = '';
+      if (util.isHalt() === 'halted') {
+        let buslst = [];
+        while (buslst.length < 5) {
+          const tempstr = { time: 0, type: "F" };
+          buslst.push(tempstr);
+        }
+        return;
+      }
+
+      switch (stn) {
+        case 'shuttlecock_o':
+          filename = `Shuttlecock_O_${dayKind}.json`;
+          break;
+        case 'subway':
+          filename = `Subway_${dayKind}.json`;
+          break;
+        case 'giksa':
+          filename = `Residence_${dayKind}.json`;
+          break;
+        case 'yesulin':
+          filename = `YesulIn_${dayKind}.json`;
+          break;
+        case 'shuttlecock_i':
+          filename = `Shuttlecock_I_${dayKind}.json`;
+          break;
+      }
+      fetch(`https://cdn.hybus.app/timetable/${dateKind}/${dayKind}/${filename}`)
         .then(res => res.json())
         .then(res => {
           let date = tdate;
@@ -69,8 +99,9 @@ export default {
 
           let buslst = [];
           let tempstr = {};
-          for (let i = 0; i < res.length; i++) {
-            let temp = res[i].time.split(":");
+          let obj_idx = filename.split(".")[0].toLowerCase()
+          for (let i = 0; i < res[obj_idx].length; i++) {
+            let temp = res[obj_idx][i].time.split(":");
             if (
               parseInt(temp[0]) * 60 +
                 parseInt(temp[1]) -
@@ -81,7 +112,7 @@ export default {
               let tmpdate = Math.floor(
                 new Date(year, month - 1, day, temp[0], temp[1], sec) / 1000
               );
-              tempstr = { time: tmpdate, type: res[i].type };
+              tempstr = { time: tmpdate, type: res[obj_idx][i].type };
               buslst.push(tempstr);
             }
           }
