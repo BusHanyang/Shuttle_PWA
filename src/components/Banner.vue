@@ -3,6 +3,9 @@
     <template v-if="this.imgName == 'banner1.png'"><a href="http://www.hanyang.ac.kr/surl/03ySB" target="_blank">
     <img class="newyear" :src="`/static/banner/${this.imgName}`" />
     </a></template>
+    <template v-else-if="this.imgName == 'banner2.png'"><a href="https://blog.naver.com/hyerica4473/222030388755cl" target="_blank">	
+    <img class="newyear" :src="`/static/banner/${this.imgName}`" />	
+    </a></template>
   </div>
 </template>
 <script>
