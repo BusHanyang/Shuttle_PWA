@@ -8,7 +8,7 @@ import * as Sentry from '@sentry/browser';
 import {Vue as VueIntegration} from '@sentry/integrations';
 
 Sentry.init({
-    dsn: 'https://49674290a25345fa80a1191010a6cbbb@o422063.ingest.sentry.io/5343662',
+    dsn: 'https://358a2b17151340439edc038a774235e5@o422317.ingest.sentry.io/5347662',
     integrations: [new VueIntegration({Vue, attachProps: true})],
 });
 
