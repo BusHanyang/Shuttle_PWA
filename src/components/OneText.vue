@@ -86,7 +86,7 @@ export default {
           filename = `Shuttlecock_I_${dayKind}.json`;
           break;
       }
-      fetch(`https://cdn.hybus.app/timetable/${dateKind}/${dayKind}/${filename}`)
+      fetch(`https://storage.googleapis.com/hybus-timetable/timetable/${dateKind}/${dayKind}/${filename}`)
         .then(res => res.json())
         .then(res => {
           let date = tdate;
