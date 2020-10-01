@@ -71,7 +71,7 @@ export default {
       if (this.buslist[this.i].type === "F") {
         return 0;
       } else {
-        if(this.buslist[this.i].time.isNaN()) return 0 //prevent NaN text shown
+        if (this.buslist[this.i].time.isNaN()) return 0 //prevent NaN text shown
         return (
           Math.floor((this.buslist[this.i].time - this.now) / 60 / 60) % 24
         );
@@ -82,7 +82,7 @@ export default {
       if (this.buslist[this.i].type === "F") {
         return 0;
       } else {
-        if(this.buslist[this.i].time.isNaN()) return 0 //prevent NaN text shown
+        if (this.buslist[this.i].time.isNaN()) return 0 //prevent NaN text shown
         return Math.floor((this.buslist[this.i].time - this.now) / 60) % 60;
       }
     },
@@ -91,7 +91,7 @@ export default {
       if (this.buslist[this.i].type === "F") {
         return 0;
       } else {
-        if(this.buslist[this.i].time.isNaN()) return 0 //prevent NaN text shown
+        if (this.buslist[this.i].time.isNaN()) return 0 //prevent NaN text shown
         return (this.buslist[this.i].time - this.now) % 60;
       }
     }
