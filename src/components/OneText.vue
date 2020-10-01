@@ -66,6 +66,7 @@ export default {
           const tempstr = { time: 0, type: "F" };
           buslst.push(tempstr);
         }
+        this.buslst = buslst
         return;
       }
 

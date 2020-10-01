@@ -43,7 +43,7 @@ export default {
   computed: {
     type() {
       let j = this.buslist.length;
-      if (this.buslist[this.i].type == "F") {
+      if (this.buslist[this.i].type === "F") {
         return "운행종료";
       } else {
         if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
@@ -59,7 +59,7 @@ export default {
             case "R":
               return "기숙사행";
             case "NA":
-              return "운행안함";
+              return "정보없음";
             default:
               return "셔틀콕행";
           }
@@ -68,9 +68,10 @@ export default {
     },
     hours() {
       let j = this.buslist.length;
-      if (this.buslist[this.i].type == "F") {
+      if (this.buslist[this.i].type === "F") {
         return 0;
       } else {
+        if (this.buslist[this.i].time.isNaN()) return 0 //prevent NaN text shown
         return (
           Math.floor((this.buslist[this.i].time - this.now) / 60 / 60) % 24
         );
@@ -78,17 +79,19 @@ export default {
     },
     minutes() {
       let j = this.buslist.length;
-      if (this.buslist[this.i].type == "F") {
+      if (this.buslist[this.i].type === "F") {
         return 0;
       } else {
+        if (this.buslist[this.i].time.isNaN()) return 0 //prevent NaN text shown
         return Math.floor((this.buslist[this.i].time - this.now) / 60) % 60;
       }
     },
     seconds() {
       let j = this.buslist.length;
-      if (this.buslist[this.i].type == "F") {
+      if (this.buslist[this.i].type === "F") {
         return 0;
       } else {
+        if (this.buslist[this.i].time.isNaN()) return 0 //prevent NaN text shown
         return (this.buslist[this.i].time - this.now) % 60;
       }
     }
