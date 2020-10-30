@@ -60,6 +60,7 @@ import Banner from "./Banner.vue";
 import PullToRefresh from "pulltorefreshjs";
 import Footer from "./Footer.vue";
 import ChangeLog from "./ChangeLog.vue";
+import {getPtrStyles} from './styles';
 
 export default {
   name: "Home",
@@ -99,11 +100,18 @@ export default {
   },
   mounted() {
     setTimeout(this.animateNextBox, 100);
+    if (this.theme === 'dark') {
+      const appElement = document.getElementById('app')
+      appElement.style.backgroundColor = '#303030'
+    }
     const ptr = PullToRefresh.init({
       mainElement: ".hybus",
       instructionsPullToRefresh: "아래로 당겨서 새로고침",
       instructionsReleaseToRefresh: "새로고침을 하려면 화면을 놓아주세요",
-      instructionsRefreshing: "시간표를 불러오는 중",
+      instructionsRefreshing: "시간표를 불러오는 중...",
+
+      getStyles: () => getPtrStyles(this.theme),
+
       refresh() {
         this.$router.go();
       }
