@@ -10,7 +10,7 @@
         class="time_num"
       >{{ this.buslist !== "hello" ? (seconds < 10 ? "0" + seconds : seconds) : "" }}</span>
     </span>
-    <span class="estimate_test">&nbsp;후 도착예정</span>
+    <span class="estimate_test">&nbsp;후 출발예정</span>
   </div>
 </template>
 
