@@ -1,3 +1,4 @@
-User-agent: Googlebot
+User-agent: Googlebot, Yeti
+Allow: /
 Disallow: /*.png$
 Disallow: /*.svg$
