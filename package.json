@@ -6,6 +6,7 @@
   "author": "Jaram-Project",
   "scripts": {
     "build": "node build/build.js && cp robots.txt dist",
+    "test": "node build/build.js && cp robots.txt dist",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev"
   },
