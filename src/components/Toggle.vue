@@ -4,7 +4,7 @@
     <label class="toggle">
       <input type="checkbox"
       :checked="(this.theme == 'dark') ? 'checked' : false"
-      @change="$emit('toggle')">
+      @change="changeTheme">
       <span class="toggler round"></span>
     </label>
   </div>
@@ -29,7 +29,15 @@ export default {
           return this.theme_str;
       }
     }
+  },
+  methods:{
+    changeTheme(){
+      setTimeout(() => {
+        this.$emit('toggle')  
+      }, 300);      
+    }
   }
+  
 }
 </script>
 <style scoped>
