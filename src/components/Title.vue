@@ -1,9 +1,16 @@
 <template>
-  <h1>버스하냥</h1>
+  <h1>{{
+      (this.isKor == true) ? "버스하냥" : "BusHanyang"}}</h1>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isKor: (navigator.language == "ko" || navigator.language == "ko-KR")
+    };
+  },
+};
 </script>
 
 <style lang="css" scoped>
