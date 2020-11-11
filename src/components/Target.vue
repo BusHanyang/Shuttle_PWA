@@ -68,7 +68,8 @@ export default {
               default:
                 return "셔틀콕행";
             }
-          } else {
+          } 
+          else {
             switch (this.buslist[this.i].type) {
               case "DH":
                 return "To HYU@Ansan Stn.";
