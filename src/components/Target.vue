@@ -48,7 +48,7 @@ export default {
         if (navigator.language == "ko" || navigator.language == "ko-KR")
           return "운행종료";
         else 
-          return "Not in Service"
+          return "Not in Service";
       } else {
         if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
           EventBus.$emit("imdone" + this.where, this.where + this.i);
