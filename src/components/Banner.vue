@@ -1,5 +1,8 @@
 <template>
   <div class="banner">
+        <template v-if="this.imgName == 'banner1.png'"><a href="https://forms.gle/eHJ3pzvyA6BM9qhD6" target="_blank">	
+    <img class="newyear" :src="`/static/banner/${this.imgName}`" />	
+    </a></template>
     <template v-if="this.imgName == 'banner2.png'"><a href="https://blog.naver.com/hyerica4473/222030388755cl" target="_blank">	
     <img class="newyear" :src="`/static/banner/${this.imgName}`" />	
     </a></template>

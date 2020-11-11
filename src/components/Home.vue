@@ -92,7 +92,7 @@ export default {
         { type: "OTC", parameter: ["yesulin"] },
         { type: "OTC", parameter: ["shuttlecock_i"] }
       ],
-      img: ["banner2.png"],
+      img: ["banner1.png", "banner2.png"],
       theme: "light",
       animated: 0,
       route: "home"
