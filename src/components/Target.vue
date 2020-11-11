@@ -49,7 +49,8 @@ export default {
           return "운행종료";
         else 
           return "Not in Service";
-      } else {
+      } 
+      else {
         if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
           EventBus.$emit("imdone" + this.where, this.where + this.i);
         } else {
