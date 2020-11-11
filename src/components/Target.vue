@@ -72,7 +72,7 @@ export default {
               case "DY":
                 return "To Yesulin APT";
               case "C":
-                return "Circulation";
+                return "Circle Line";
               case "R":
                 return "To Dorm";
               case "NA":
