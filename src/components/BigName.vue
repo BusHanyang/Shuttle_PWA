@@ -1,6 +1,6 @@
 <template>
   <span id="depart">
-    <p>{{ this.target }}</p>
+  <p>{{ this.target }}</p>
   </span>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   props: ["val"],
   data() {
     return {
-      target: this.getStationName(this.val),
+      target: this.getStationName(this.val)
     };
   },
   methods: {
@@ -31,7 +31,8 @@ export default {
           default:
             return "???";
         }
-      } else {
+      } 
+      else {
         switch (station) {
           case "subway":
             return "HYU @\r\nAnsan Stn.";
@@ -47,8 +48,8 @@ export default {
             return "???";
         }
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

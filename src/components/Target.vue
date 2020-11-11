@@ -2,19 +2,13 @@
   <div class="target">
     <span class="bustype">{{ this.buslist !== "hello" ? type : "" }}</span>
     <span>
-      <span class="time_num">{{
-        this.buslist !== "hello" ? (hours > 0 ? hours + " :" : "") : ""
-      }}</span>
-      <span class="time_num">{{
-        this.buslist !== "hello"
-          ? minutes < 10
-            ? "0" + minutes + " :"
-            : minutes + " :"
-          : ""
-      }}</span>
-      <span class="time_num">{{
-        this.buslist !== "hello" ? (seconds < 10 ? "0" + seconds : seconds) : ""
-      }}</span>
+      <span class="time_num">{{ this.buslist !== "hello" ? (hours > 0 ? hours + " :" : "") : "" }}</span>
+      <span
+        class="time_num"
+      >{{ this.buslist !== "hello" ? (minutes < 10 ? "0" + minutes + " :" : minutes + " :") : "" }}</span>
+      <span
+        class="time_num"
+      >{{ this.buslist !== "hello" ? (seconds < 10 ? "0" + seconds : seconds) : "" }}</span>
     </span>
     <span class="estimate_test">{{
       (this.isKor == true) ? "&nbsp;후 출발예정" : "&nbsp;before departure"}}</span>
@@ -35,7 +29,7 @@ export default {
   methods: {
     getCurrentTime: (x) => {
       x.now = Math.floor(new Date().getTime() / 1000);
-    },
+    }
   },
 
   props: ["where", "buslist", "a"],
@@ -115,8 +109,8 @@ export default {
         if (isNaN(this.buslist[this.i].time)) return 0; //prevent NaN text shown
         return (this.buslist[this.i].time - this.now) % 60;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
