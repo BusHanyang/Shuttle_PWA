@@ -45,8 +45,12 @@ export default {
   computed: {
     type() {
       if (this.buslist[this.i].type === "F") {
-        return "운행종료";
-      } else {
+        if (navigator.language == "ko" || navigator.language == "ko-KR")
+          return "운행종료";
+        else 
+          return "Not in Service";
+      } 
+      else {
         if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
           EventBus.$emit("imdone" + this.where, this.where + this.i);
         } else {
@@ -65,14 +69,15 @@ export default {
               default:
                 return "셔틀콕행";
             }
-          } else {
+          } 
+          else {
             switch (this.buslist[this.i].type) {
               case "DH":
                 return "To HYU@Ansan Stn.";
               case "DY":
                 return "To Yesulin APT";
               case "C":
-                return "Circulation";
+                return "Circle Line";
               case "R":
                 return "To Dorm";
               case "NA":
