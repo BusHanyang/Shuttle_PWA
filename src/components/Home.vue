@@ -1,5 +1,18 @@
 <template>
   <div class="hybus" :class="theme == 'dark' ? 'dark' : 'light'">
+    <div class="header-img-wapper">
+      <img src="/static/images/christmas-decoration1.png" class="header-img" />
+      <img src="/static/images/christmas-decoration2.png" class="header-img" />
+      <img src="/static/images/christmas-decoration1.png" class="header-img" />
+      <img src="/static/images/christmas-decoration2.png" class="header-img" />
+      <img src="/static/images/christmas-decoration1.png" class="header-img" />
+      <img src="/static/images/christmas-decoration2.png" class="header-img" />
+      <img src="/static/images/christmas-decoration1.png" class="header-img" />
+      <img src="/static/images/christmas-decoration2.png" class="header-img" />
+      <img src="/static/images/christmas-decoration1.png" class="header-img" />
+      <img src="/static/images/christmas-decoration2.png" class="header-img" />
+      <img src="/static/images/christmas-decoration1.png" class="header-img" />
+    </div>
     <title-component></title-component>
     <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
     <div class="content">
@@ -182,5 +195,16 @@ export default {
 }
 .slide {
   box-shadow: 0 0 2.142rem 0.142rem rgba(0, 0, 0, 0.15);
+}
+.header-img-wapper {
+  position: fixed;
+  height: 35px;
+  top: 0;
+  left: -30px;
+  display: flex;
+  flex-direction: row;
+}
+.header-img {
+  height: 100%;
 }
 </style>
