@@ -125,7 +125,8 @@ export default {
   display: table;
 }
 .bustype {
-  color: #007afa;
+  color: #0E8A6E;
+  font-weight: bold;
   font-size: 0.785rem;
   display: table-cell;
   padding: 5px;

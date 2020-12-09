@@ -1,6 +1,9 @@
 <template>
-  <h1>{{
-      (this.isKor == true) ? "버스하냥" : "BusHanyang"}}</h1>
+  <div>
+    <h1>{{(this.isKor == true) ? "버스하냥 ⛄" : "BusHanyang ⛄"}} 
+      <!-- <img class="xmas-hy" :src="`static/christmas_hanyang.png`" /> -->
+    </h1>
+  </div>
 </template>
 
 <script>
@@ -34,6 +37,7 @@ export default {
 }
 
 h1 {
+  position: relative;
   font-size: 32px;
   margin: 0;
   padding-top: 60px;
@@ -42,4 +46,10 @@ h1 {
   text-align: left;
   font-family: 'noto_sans_kr_regular';
 }
+/* 
+.xmas-hy {
+  width: 32px;
+  height: inherit;
+  object-fit: cover;
+} */
 </style>
