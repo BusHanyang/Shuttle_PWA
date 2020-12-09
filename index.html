@@ -27,16 +27,13 @@
     <meta name="keywords" content="버스하냥, ERICA, 에리카, 셔틀, 시간표, 한양대학교">
   </head>
   <body>
-    <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+    <script src="/static/snowf.min.js"></script>
     <script>
-        var snow = Snowflakes({
-          color: '#c8eefa',
-          count: 40,
-          minOpacity: 0.7,
-          maxOpacity: 0.95,
-          speed: 0.7,
-          wind: false
-        });
+        snowf.init({
+          size:5,
+          amount:40,
+          color:'#91cce0'
+        })
     </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
