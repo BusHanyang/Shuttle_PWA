@@ -38,14 +38,14 @@ export default {
     return {
       now: Math.floor(new Date().getTime() / 1000),
       i: 0 + this.a,
-      isKor: (navigator.language == "ko" || navigator.language == "ko-KR")
+      isKor: (navigator.language.toLowerCase() == "ko" || navigator.language.toLowerCase() == "ko-kr")
     };
   },
 
   computed: {
     type() {
       if (this.buslist[this.i].type === "F") {
-        if (navigator.language == "ko" || navigator.language == "ko-KR")
+        if (this.isKor)
           return "운행종료";
         else 
           return "Not in Service";
@@ -54,7 +54,7 @@ export default {
         if (Math.floor(this.buslist[this.i].time - this.now) <= 0) {
           EventBus.$emit("imdone" + this.where, this.where + this.i);
         } else {
-          if (navigator.language == "ko" || navigator.language == "ko-KR") {
+          if (this.isKor) {
             switch (this.buslist[this.i].type) {
               case "DH":
                 return "한대앞행";

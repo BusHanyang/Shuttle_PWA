@@ -10,7 +10,7 @@
 export default {
   data() {
     return {
-      isKor: (navigator.language == "ko" || navigator.language == "ko-KR")
+      isKor: (navigator.language.toLowerCase() == "ko" || navigator.language == "ko-kr")
     };
   },
 };
