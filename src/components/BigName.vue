@@ -16,7 +16,7 @@ export default {
   methods: {
     getStationName: (stn) => {
       var station = stn;
-      if (navigator.language == "ko" || navigator.language == "ko-KR") {
+      if (navigator.language.toLowerCase() == "ko" || navigator.language.toLowerCase() == "ko-kr") {
         switch (station) {
           case "subway":
             return "한대앞";
