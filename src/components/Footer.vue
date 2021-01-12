@@ -27,7 +27,7 @@
 
       <br />
       <br />
-      COPYRIGHT © 2020 BusHanyang. All rights reserved
+      COPYRIGHT © 2020-2021 BusHanyang. All rights reserved
     </span>
   </footer>
 </template>
