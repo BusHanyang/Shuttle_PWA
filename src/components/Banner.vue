@@ -5,7 +5,7 @@
           <img class="newyear" :src="`/static/banner/${this.imgName}`" />	
         </a>
       </template>
-      <template v-if="this.imgName == 'banner.png'">
+      <template v-if="this.imgName == 'banner2.png'">
         <a href="https://blog.naver.com/hyerica4473/222208208766" target="_blank">	
           <img class="newyear" :src="`/static/banner/${this.imgName}`" />	
         </a>
