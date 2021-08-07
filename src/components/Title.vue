@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{(this.isKor == true) ? "버스하냥 ⛄" : "BusHanyang ⛄"}} 
+    <h1>{{(this.isKor == true) ? "버스하냥" : "BusHanyang"}} 
       <!-- <img class="xmas-hy" :src="`static/christmas_hanyang.png`" /> -->
     </h1>
   </div>
