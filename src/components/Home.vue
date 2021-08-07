@@ -1,18 +1,5 @@
 <template>
   <div class="hybus" :class="theme == 'dark' ? 'dark' : 'light'">
-    <div class="header-img-wapper">
-      <img src="/static/images/christmas-decoration1.png" class="header-img" />
-      <img src="/static/images/christmas-decoration2.png" class="header-img" />
-      <img src="/static/images/christmas-decoration1.png" class="header-img" />
-      <img src="/static/images/christmas-decoration2.png" class="header-img" />
-      <img src="/static/images/christmas-decoration1.png" class="header-img" />
-      <img src="/static/images/christmas-decoration2.png" class="header-img" />
-      <img src="/static/images/christmas-decoration1.png" class="header-img" />
-      <img src="/static/images/christmas-decoration2.png" class="header-img" />
-      <img src="/static/images/christmas-decoration1.png" class="header-img" />
-      <img src="/static/images/christmas-decoration2.png" class="header-img" />
-      <img src="/static/images/christmas-decoration1.png" class="header-img" />
-    </div>
     <title-component></title-component>
     <toggle-component :theme="theme" @toggle="toggle"></toggle-component>
     <div class="content">
