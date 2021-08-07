@@ -3,6 +3,18 @@
     <h1 class="changelog_title">Change Log</h1>
     <div class="changelog">
       <div class="block">
+        <h4>2021.08.07</h4>
+        <p>✏️ 상단 배너 학사공지 이미지 교체</p>
+      </div>
+      <div class="block">
+        <h4>2021.04.05</h4>
+        <p>🔧 코로나19로 인한 시간표 변경사항 반영</p>
+      </div>
+      <div class="block">
+        <h4>2020.12.09</h4>
+        <p>🎁 크리스마스 테마 적용</p>
+      </div>
+      <div class="block">
         <h4>2020.11.11</h4>
         <p>🎁 다국어 부분 지원 (한국어, 영어)</p>
       </div>
