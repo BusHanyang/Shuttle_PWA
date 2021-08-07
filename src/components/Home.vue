@@ -159,7 +159,7 @@ export default {
   background: #ffffff;
 }
 .dark {
-  background: #660300;
+  background: #303030;
   color: #ffffff;
 }
 .content {
