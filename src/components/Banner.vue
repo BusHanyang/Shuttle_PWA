@@ -1,23 +1,22 @@
 <template>
   <div class="banner">
-      <template v-if="this.imgName == 'banner1.png'">
-        <a href="https://forms.gle/eHJ3pzvyA6BM9qhD6" target="_blank">	
-          <img class="newyear" :src="`/static/banner/${this.imgName}`" />	
-        </a>
-      </template>
-      <template v-if="this.imgName == 'banner2.png'">
-        <a href="https://blog.naver.com/hyerica4473/222208208766" target="_blank">	
-          <img class="newyear" :src="`/static/banner/${this.imgName}`" />	
-        </a>
-      </template>
+    <template v-if="this.imgName == 'banner1.png'">
+      <a href="https://forms.gle/eHJ3pzvyA6BM9qhD6" target="_blank">
+        <img class="newyear" :src="`/static/banner/${this.imgName}`" />
+      </a>
+    </template>
+    <template v-if="this.imgName == 'banner3.png'">
+      <a href="https://blog.naver.com/hyerica4473/222441369146" target="_blank">
+        <img class="newyear" :src="`/static/banner/${this.imgName}`" />
+      </a>
+    </template>
   </div>
 </template>
 <script>
 export default {
   name: "BannerComponent",
-  props: ["imgName"]
+  props: ["imgName"],
 };
-
 </script>
 <style lang="css">
 .banner {
