@@ -16,7 +16,7 @@ var VueCookie = require('vue-cookie');
 
 Vue.use(VueGtag, {
   config: {
-    id: 'UA-167215120-1'
+    id: 'GTM-WVQ7FQG'
   }
 });
 Vue.use(VueCookie);
