@@ -9,6 +9,7 @@
 ## Pull request type
 
 Please check the type of change your PR introduces:
+- [ ] Timetable
 - [ ] Bugfix
 - [ ] Feature Update
 - [ ] Code style update (formatting, renaming)
